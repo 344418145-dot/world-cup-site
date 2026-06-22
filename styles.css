@@ -109,7 +109,7 @@ main {
 }
 
 .legend,
-.odds-note {
+.data-note {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
@@ -121,6 +121,10 @@ main {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+}
+
+.data-note span {
+  display: inline;
 }
 
 .rank {
@@ -499,6 +503,10 @@ tr.third .pos {
   text-align: left;
 }
 
+.match-tab span {
+  min-width: 0;
+}
+
 .match-tab:last-child {
   border-right: 0;
 }
@@ -573,32 +581,33 @@ tr.third .pos {
   font-weight: 900;
 }
 
-.odds-grid {
+.data-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
   margin-top: 1rem;
 }
 
-.odd-box {
+.data-box {
   padding: 1rem;
   background: #fff;
   border: 1px solid var(--line);
   border-radius: 0.45rem;
-  text-align: center;
+  text-align: left;
 }
 
-.odd-box span {
+.data-box span {
   display: block;
   color: var(--muted);
   font-size: 0.78rem;
   font-weight: 800;
 }
 
-.odd-box strong {
+.data-box strong {
   display: block;
   margin-top: 0.25rem;
-  font-size: 1.65rem;
+  font-size: 1rem;
+  line-height: 1.45;
 }
 
 .match-info {
@@ -843,6 +852,14 @@ tr.third .pos {
 }
 
 @media (max-width: 760px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    background: #f3f7f8;
+  }
+
   .topbar,
   .section-head,
   .take-head {
@@ -863,8 +880,70 @@ tr.third .pos {
     flex-direction: column;
   }
 
+  .topbar {
+    position: static;
+    gap: 0.55rem;
+    padding: 0.7rem 0.8rem;
+  }
+
+  .topbar h1 {
+    font-size: 1.2rem;
+  }
+
+  .status-pill {
+    min-height: 1.9rem;
+    padding: 0 0.65rem;
+    font-size: 0.76rem;
+  }
+
+  .eyebrow {
+    font-size: 0.66rem;
+  }
+
   main {
     padding-top: 0;
+    padding-right: 0.55rem;
+    padding-left: 0.55rem;
+    padding-bottom: 1.5rem;
+    overflow: hidden;
+  }
+
+  .section-head {
+    width: 100%;
+    max-width: calc(100vw - 1.1rem);
+    gap: 0.35rem;
+    margin: 1rem 0 0.55rem;
+  }
+
+  .section-head > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .section-head h2,
+  .take-head h2 {
+    font-size: 1.28rem;
+  }
+
+  .data-note,
+  .legend {
+    gap: 0.45rem;
+    font-size: 0.76rem;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+  }
+
+  .data-note {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-all;
+  }
+
+  .data-note span {
+    display: block;
   }
 
   .groups-grid,
@@ -874,21 +953,155 @@ tr.third .pos {
     grid-template-columns: 1fr;
   }
 
+  .match-board,
+  .my-take,
+  .groups-grid,
+  .group-card,
+  .match-panel,
+  .match-feature,
+  .versus {
+    width: 100%;
+    max-width: calc(100vw - 1.1rem);
+    min-width: 0;
+  }
+
+  .match-board,
+  .versus {
+    overflow: hidden;
+  }
+
   .match-panel {
-    padding: 0.85rem;
+    padding: 0.55rem;
   }
 
   .match-tab {
+    min-height: 3rem;
+    padding: 0.52rem 0.65rem;
     border-right: 0;
     border-bottom: 1px solid var(--line);
   }
 
+  .tab-teams {
+    min-width: 0;
+    gap: 0.3rem;
+    font-size: 0.86rem;
+    max-width: 100%;
+  }
+
+  .tab-teams span:not(.mini-flag) {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .tab-meta {
+    margin-top: 0.18rem;
+    font-size: 0.7rem;
+  }
+
+  .mini-flag {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .match-feature {
+    gap: 0.6rem;
+  }
+
   .versus {
-    grid-template-columns: 1fr;
+    position: relative;
+    display: block;
+    height: 7.25rem;
+    min-height: auto;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .versus-team {
+    position: absolute;
+    top: 50%;
+    width: 38%;
+    max-width: 38%;
+    gap: 0.32rem;
+    min-width: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  .versus-team:first-child {
+    left: 25%;
+  }
+
+  .versus-team:last-child {
+    left: 75%;
+  }
+
+  .versus-team strong {
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 1rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .versus-team .detail-flag {
+    width: 2.6rem;
+    height: 2.6rem;
+  }
+
+  .detail-link {
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 0.72rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .vs-mark {
-    transform: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    place-items: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 0.9rem;
+    background: #fff;
+    border: 1px solid #f0c6c4;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .data-grid {
+    grid-template-columns: 1fr;
+    gap: 0.45rem;
+    margin-top: 0.5rem;
+  }
+
+  .data-box {
+    padding: 0.62rem 0.7rem;
+  }
+
+  .data-box span {
+    font-size: 0.7rem;
+  }
+
+  .data-box strong {
+    font-size: 0.84rem;
+    line-height: 1.35;
+  }
+
+  .match-info {
+    gap: 0.35rem;
+    padding: 0.72rem;
+  }
+
+  .info-row {
+    padding-bottom: 0.42rem;
+    font-size: 0.78rem;
+  }
+
+  .info-row strong {
+    max-width: 62%;
   }
 
   .standings th,
@@ -929,6 +1142,37 @@ tr.third .pos {
   .flag-button {
     width: 1.9rem;
     height: 1.9rem;
+  }
+
+  .group-header {
+    min-height: 2.65rem;
+    padding: 0.65rem 0.75rem;
+  }
+
+  .group-header h3 {
+    font-size: 0.92rem;
+  }
+
+  .match-board,
+  .group-card,
+  .my-take {
+    border-radius: 0.38rem;
+  }
+
+  .my-take {
+    margin-top: 0.75rem;
+    padding: 0.75rem;
+  }
+
+  .take-head {
+    margin-bottom: 0.55rem;
+  }
+
+  .take-display {
+    min-height: 4rem;
+    padding: 0.72rem;
+    font-size: 0.86rem;
+    line-height: 1.55;
   }
 
   .overlay {
