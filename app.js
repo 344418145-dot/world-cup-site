@@ -64,6 +64,12 @@ const groups = [
   group("L", ["england", "croatia", "ghana", "panama"], [[1, 1, 0, 0, 2, 0, 3], [1, 1, 0, 0, 2, 1, 3], [1, 0, 0, 1, 1, 2, 0], [1, 0, 0, 1, 0, 2, 0]])
 ];
 
+let standingsSource = {
+  updatedAt: "",
+  isLive: false,
+  message: "实时积分待接入"
+};
+
 const schedules = {
   A: [["墨西哥", "南非", "6月11日"], ["韩国", "捷克", "6月12日"], ["墨西哥", "韩国", "6月18日"], ["南非", "捷克", "6月19日"], ["墨西哥", "捷克", "6月24日"], ["南非", "韩国", "6月24日"]],
   B: [["加拿大", "卡塔尔", "6月12日"], ["瑞士", "波黑", "6月13日"], ["加拿大", "瑞士", "6月18日"], ["卡塔尔", "波黑", "6月19日"], ["加拿大", "波黑", "6月24日"], ["卡塔尔", "瑞士", "6月24日"]],
@@ -72,73 +78,58 @@ const schedules = {
   E: [["德国", "库拉索", "6月14日"], ["科特迪瓦", "厄瓜多尔", "6月15日"], ["德国", "科特迪瓦", "6月20日"], ["库拉索", "厄瓜多尔", "6月21日"], ["德国", "厄瓜多尔", "6月26日"], ["库拉索", "科特迪瓦", "6月26日"]],
   F: [["荷兰", "突尼斯", "6月15日"], ["日本", "瑞典", "6月16日"], ["荷兰", "日本", "6月21日"], ["突尼斯", "瑞典", "6月22日"], ["荷兰", "瑞典", "6月27日"], ["突尼斯", "日本", "6月27日"]],
   G: [["比利时", "新西兰", "6月15日"], ["伊朗", "埃及", "6月16日"], ["比利时", "伊朗", "6月21日"], ["新西兰", "埃及", "6月22日"], ["比利时", "埃及", "6月27日"], ["新西兰", "伊朗", "6月27日"]],
-  H: [["西班牙", "佛得角", "6月16日"], ["沙特", "乌拉圭", "6月17日"], ["西班牙", "沙特", "6月22日"], ["佛得角", "乌拉圭", "6月23日"], ["西班牙", "乌拉圭", "6月28日"], ["佛得角", "沙特", "6月28日"]],
-  I: [["法国", "伊拉克", "6月17日"], ["塞内加尔", "挪威", "6月22日"], ["法国", "塞内加尔", "6月23日"], ["伊拉克", "挪威", "6月28日"], ["法国", "挪威", "7月2日"], ["伊拉克", "塞内加尔", "7月2日"]],
-  J: [["阿根廷", "约旦", "6月17日"], ["阿尔及利亚", "奥地利", "6月22日"], ["阿根廷", "阿尔及利亚", "6月23日"], ["约旦", "奥地利", "6月28日"], ["阿根廷", "奥地利", "7月2日"], ["约旦", "阿尔及利亚", "7月2日"]],
-  K: [["葡萄牙", "民主刚果", "6月18日"], ["乌兹别克斯坦", "哥伦比亚", "6月18日"], ["葡萄牙", "乌兹别克斯坦", "6月24日"], ["民主刚果", "哥伦比亚", "6月24日"], ["葡萄牙", "哥伦比亚", "6月29日"], ["民主刚果", "乌兹别克斯坦", "6月29日"]],
-  L: [["英格兰", "巴拿马", "6月18日"], ["克罗地亚", "加纳", "6月19日"], ["英格兰", "克罗地亚", "6月24日"], ["巴拿马", "加纳", "6月25日"], ["英格兰", "加纳", "6月30日"], ["巴拿马", "克罗地亚", "6月30日"]]
+  H: [["西班牙", "佛得角", "6月16日"], ["沙特", "乌拉圭", "6月17日"], ["西班牙", "沙特", "6月21日"], ["佛得角", "乌拉圭", "6月21日"], ["西班牙", "乌拉圭", "6月26日"], ["佛得角", "沙特", "6月26日"]],
+  I: [["法国", "塞内加尔", "6月16日"], ["伊拉克", "挪威", "6月16日"], ["法国", "伊拉克", "6月22日"], ["挪威", "塞内加尔", "6月22日"], ["挪威", "法国", "6月26日"], ["塞内加尔", "伊拉克", "6月26日"]],
+  J: [["阿根廷", "阿尔及利亚", "6月16日"], ["奥地利", "约旦", "6月16日"], ["阿根廷", "奥地利", "6月22日"], ["约旦", "阿尔及利亚", "6月22日"], ["阿尔及利亚", "奥地利", "6月27日"], ["约旦", "阿根廷", "6月27日"]],
+  K: [["葡萄牙", "民主刚果", "6月18日"], ["乌兹别克斯坦", "哥伦比亚", "6月18日"], ["葡萄牙", "乌兹别克斯坦", "6月23日"], ["哥伦比亚", "民主刚果", "6月23日"], ["葡萄牙", "哥伦比亚", "6月27日"], ["民主刚果", "乌兹别克斯坦", "6月27日"]],
+  L: [["英格兰", "克罗地亚", "6月17日"], ["加纳", "巴拿马", "6月17日"], ["英格兰", "加纳", "6月23日"], ["巴拿马", "克罗地亚", "6月23日"], ["巴拿马", "英格兰", "6月27日"], ["克罗地亚", "加纳", "6月27日"]]
 };
 
 const dailyMatches = [
-  match("2026-06-22", "senegal", "norway", "Group I", "12:00", "北京时间 2026年6月23日 03:00", "洛杉矶", {
-    h2h: "近 5 次：塞内加尔 1 胜 2 平 2 负",
-    form: "塞内加尔 W-D-W-L-D · 挪威 W-W-D-L-W",
-    ranking: "塞内加尔 #17 · 挪威 #44"
-  }),
-  match("2026-06-22", "france", "iraq", "Group I", "15:00", "北京时间 2026年6月23日 06:00", "堪萨斯城", {
-    h2h: "暂无正式比赛交锋记录",
-    form: "法国 W-W-D-W-L · 伊拉克 W-D-L-W-W",
-    ranking: "法国 #2 · 伊拉克 #58"
-  }),
-  match("2026-06-22", "argentina", "austria", "Group J", "18:00", "北京时间 2026年6月23日 09:00", "达拉斯", {
+  match("2026-06-22", "argentina", "austria", "Group J", "10:00 PT", "北京时间 2026年6月23日 01:00", "达拉斯", {
     h2h: "近 5 次：阿根廷 2 胜 1 平 2 负",
     form: "阿根廷 W-W-W-D-W · 奥地利 W-D-W-L-W",
     ranking: "阿根廷 #1 · 奥地利 #25"
   }),
-  match("2026-06-22", "jordan", "algeria", "Group J", "21:00", "北京时间 2026年6月23日 12:00", "休斯敦", {
+  match("2026-06-22", "france", "iraq", "Group I", "14:00 PT", "北京时间 2026年6月23日 05:00", "费城", {
+    h2h: "暂无正式比赛交锋记录",
+    form: "法国 W-W-D-W-L · 伊拉克 W-D-L-W-W",
+    ranking: "法国 #2 · 伊拉克 #58"
+  }),
+  match("2026-06-22", "norway", "senegal", "Group I", "17:00 PT", "北京时间 2026年6月23日 08:00", "纽约/新泽西", {
+    h2h: "近 5 次：挪威 2 胜 2 平 1 负",
+    form: "挪威 W-W-D-L-W · 塞内加尔 W-D-W-L-D",
+    ranking: "挪威 #44 · 塞内加尔 #17"
+  }),
+  match("2026-06-22", "jordan", "algeria", "Group J", "20:00 PT", "北京时间 2026年6月23日 11:00", "旧金山湾区", {
     h2h: "近 3 次：约旦 0 胜 1 平 2 负",
     form: "约旦 D-W-L-W-D · 阿尔及利亚 W-W-D-L-W",
     ranking: "约旦 #68 · 阿尔及利亚 #43"
   }),
-  match("2026-06-23", "france", "senegal", "Group I", "12:00", "北京时间 2026年6月24日 03:00", "费城", {
-    h2h: "近 5 次：法国 3 胜 1 平 1 负",
-    form: "法国 W-W-D-W-L · 塞内加尔 W-D-W-L-D",
-    ranking: "法国 #2 · 塞内加尔 #17"
-  }),
-  match("2026-06-23", "iraq", "norway", "Group I", "15:00", "北京时间 2026年6月24日 06:00", "西雅图", {
-    h2h: "暂无正式比赛交锋记录",
-    form: "伊拉克 W-D-L-W-W · 挪威 W-W-D-L-W",
-    ranking: "伊拉克 #58 · 挪威 #44"
-  }),
-  match("2026-06-23", "argentina", "algeria", "Group J", "18:00", "北京时间 2026年6月24日 09:00", "亚特兰大", {
-    h2h: "近 2 次：阿根廷 1 胜 1 平 0 负",
-    form: "阿根廷 W-W-W-D-W · 阿尔及利亚 W-W-D-L-W",
-    ranking: "阿根廷 #1 · 阿尔及利亚 #43"
-  }),
-  match("2026-06-23", "jordan", "austria", "Group J", "21:00", "北京时间 2026年6月24日 12:00", "旧金山湾区", {
-    h2h: "暂无正式比赛交锋记录",
-    form: "约旦 D-W-L-W-D · 奥地利 W-D-W-L-W",
-    ranking: "约旦 #68 · 奥地利 #25"
-  }),
-  match("2026-06-24", "portugal", "uzbekistan", "Group K", "12:00", "北京时间 2026年6月25日 03:00", "温哥华", {
+  match("2026-06-23", "portugal", "uzbekistan", "Group K", "10:00 PT", "北京时间 2026年6月24日 01:00", "待定", {
     h2h: "暂无正式比赛交锋记录",
     form: "葡萄牙 W-W-L-W-D · 乌兹别克斯坦 W-D-W-W-L",
     ranking: "葡萄牙 #6 · 乌兹别克斯坦 #64"
   }),
-  match("2026-06-24", "drCongo", "colombia", "Group K", "15:00", "北京时间 2026年6月25日 06:00", "迈阿密", {
-    h2h: "暂无正式比赛交锋记录",
-    form: "民主刚果 W-L-D-W-D · 哥伦比亚 W-W-D-W-L",
-    ranking: "民主刚果 #61 · 哥伦比亚 #12"
+  match("2026-06-23", "england", "ghana", "Group L", "13:00 PT", "北京时间 2026年6月24日 04:00", "待定", {
+    h2h: "近 3 次：英格兰 2 胜 1 平 0 负",
+    form: "英格兰 W-D-W-L-W · 加纳 W-D-L-W-W",
+    ranking: "英格兰 #4 · 加纳 #60"
   }),
-  match("2026-06-24", "england", "croatia", "Group L", "18:00", "北京时间 2026年6月25日 09:00", "纽约/新泽西", {
-    h2h: "近 5 次：英格兰 2 胜 1 平 2 负",
-    form: "英格兰 W-D-W-L-W · 克罗地亚 W-W-D-L-W",
-    ranking: "英格兰 #4 · 克罗地亚 #10"
-  }),
-  match("2026-06-24", "panama", "ghana", "Group L", "21:00", "北京时间 2026年6月25日 12:00", "多伦多", {
+  match("2026-06-23", "panama", "croatia", "Group L", "16:00 PT", "北京时间 2026年6月24日 07:00", "待定", {
     h2h: "暂无正式比赛交锋记录",
-    form: "巴拿马 W-L-W-D-L · 加纳 W-D-L-W-W",
-    ranking: "巴拿马 #45 · 加纳 #60"
+    form: "巴拿马 W-L-W-D-L · 克罗地亚 W-W-D-L-W",
+    ranking: "巴拿马 #45 · 克罗地亚 #10"
+  }),
+  match("2026-06-23", "colombia", "drCongo", "Group K", "19:00 PT", "北京时间 2026年6月24日 10:00", "待定", {
+    h2h: "暂无正式比赛交锋记录",
+    form: "哥伦比亚 W-W-D-W-L · 民主刚果 W-L-D-W-D",
+    ranking: "哥伦比亚 #12 · 民主刚果 #61"
+  }),
+  match("2026-06-24", "mexico", "czechia", "Group A", "12:00", "北京时间 2026年6月25日 03:00", "待定", {
+    h2h: "近 3 次：墨西哥 1 胜 1 平 1 负",
+    form: "墨西哥 W-W-D-L-W · 捷克 D-W-L-W-D",
+    ranking: "墨西哥 #14 · 捷克 #39"
   })
 ];
 
@@ -269,6 +260,15 @@ function teamIdFromChineseName(name) {
   return Object.values(teams).find((teamItem) => teamItem.cn === name)?.id;
 }
 
+function teamIdFromAnyName(name) {
+  if (!name) return "";
+  if (teams[name]) return name;
+  const normalized = String(name).trim().toLowerCase();
+  return Object.values(teams).find((teamItem) =>
+    [teamItem.id, teamItem.cn, teamItem.en].some((value) => String(value).trim().toLowerCase() === normalized)
+  )?.id || "";
+}
+
 function chineseDateToIso(label) {
   const [, month, day] = label.match(/(\d+)月(\d+)日/) || [];
   return `2026-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
@@ -284,8 +284,68 @@ function defaultMatchData(homeId, awayId) {
   };
 }
 
+async function loadLiveStandings() {
+  try {
+    const response = await fetch(`./data/standings.json?v=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) throw new Error("No standings feed");
+    const payload = await response.json();
+    applyStandingsPayload(payload);
+  } catch (error) {
+    standingsSource = {
+      updatedAt: "",
+      isLive: false,
+      message: "实时积分待接入"
+    };
+  }
+}
+
+function applyStandingsPayload(payload) {
+  if (!payload?.groups?.length) return;
+
+  payload.groups.forEach((sourceGroup) => {
+    const groupData = groups.find((item) => item.name === sourceGroup.name);
+    if (!groupData) return;
+
+    const rows = sourceGroup.rows
+      .map((sourceRow) => {
+        const teamId = teamIdFromAnyName(sourceRow.id || sourceRow.team || sourceRow.name);
+        if (!teamId) return null;
+        return {
+          id: teamId,
+          stats: [
+            Number(sourceRow.played || 0),
+            Number(sourceRow.won || 0),
+            Number(sourceRow.drawn || 0),
+            Number(sourceRow.lost || 0),
+            Number(sourceRow.gf || 0),
+            Number(sourceRow.ga || 0),
+            Number(sourceRow.points || 0)
+          ]
+        };
+      })
+      .filter(Boolean);
+
+    if (rows.length) groupData.rows = rows;
+  });
+
+  standingsSource = {
+    updatedAt: payload.updatedAt || "",
+    isLive: true,
+    message: payload.source || "实时积分"
+  };
+}
+
 function renderGroups() {
-  document.querySelector("#groups").innerHTML = groups.map(renderGroup).join("");
+  const groupsEl = document.querySelector("#groups");
+  if (!groupsEl) return;
+  groupsEl.innerHTML = groups.map(renderGroup).join("");
+
+  const meta = document.querySelector("#standingsMeta");
+  if (meta) {
+    const label = standingsSource.isLive ? "实时积分" : standingsSource.message;
+    const time = standingsSource.updatedAt ? ` · 更新于 ${formatDateTime(standingsSource.updatedAt)}` : "";
+    meta.textContent = `${label}${time}`;
+  }
 }
 
 function renderGroup(groupData) {
@@ -295,6 +355,9 @@ function renderGroup(groupData) {
       const [played, won, drawn, lost, gf, ga, pts] = row.stats;
       const gd = gf - ga;
       const status = index < 2 ? "auto" : index === 2 ? "third" : "";
+      const values = standingsSource.isLive
+        ? [played, won, drawn, lost, `${gd > 0 ? "+" : ""}${gd}`, pts]
+        : ["-", "-", "-", "-", "-", "-"];
       return `
         <tr class="${status}">
           <td class="pos"></td>
@@ -306,12 +369,12 @@ function renderGroup(groupData) {
               <span class="team-name">${t.cn}</span>
             </div>
           </td>
-          <td>${played}</td>
-          <td>${won}</td>
-          <td>${drawn}</td>
-          <td>${lost}</td>
-          <td>${gd > 0 ? "+" : ""}${gd}</td>
-          <td class="points">${pts}</td>
+          <td>${values[0]}</td>
+          <td>${values[1]}</td>
+          <td>${values[2]}</td>
+          <td>${values[3]}</td>
+          <td>${values[4]}</td>
+          <td class="points">${values[5]}</td>
         </tr>
       `;
     })
@@ -340,26 +403,34 @@ let activeMatches = [];
 function todayKey() {
   const override = new URLSearchParams(location.search).get("date");
   if (override) return override;
+  const tomorrow = new Date(Date.now() + 24 * 60 * 60 * 1000);
   return new Intl.DateTimeFormat("en-CA", {
     timeZone: "Asia/Shanghai",
     year: "numeric",
     month: "2-digit",
     day: "2-digit"
-  }).format(new Date());
+  }).format(tomorrow);
 }
 
 function getDailyMatches() {
   const key = todayKey();
   const records = allDailyMatches();
-  const matches = records.filter((item) => item.date === key);
+  const matches = records.filter((item) => beijingDateKey(item) === key);
   if (matches.length) return { key, matches, isFallback: false };
 
-  const next = records.find((item) => item.date > key) || records[0];
+  const next = records.find((item) => beijingDateKey(item) > key) || records[0];
+  const nextKey = beijingDateKey(next);
   return {
-    key: next.date,
-    matches: records.filter((item) => item.date === next.date),
+    key: nextKey,
+    matches: records.filter((item) => beijingDateKey(item) === nextKey),
     isFallback: true
   };
+}
+
+function beijingDateKey(matchItem) {
+  const match = matchItem.beijingTime.match(/2026年(\d+)月(\d+)日/);
+  if (!match) return matchItem.date;
+  return `2026-${String(match[1]).padStart(2, "0")}-${String(match[2]).padStart(2, "0")}`;
 }
 
 function renderTabs(activeIndex = 0) {
@@ -393,12 +464,24 @@ function renderTabs(activeIndex = 0) {
 function updateMatchTitle(daily) {
   const title = document.querySelector(".matches-title h2");
   if (!title) return;
-  title.textContent = daily.isFallback ? `${formatDateLabel(daily.key)} 对阵` : "今日对阵与数据";
+  title.textContent = daily.isFallback ? `${formatDateLabel(daily.key)} 对阵` : "明日对阵与数据";
 }
 
 function formatDateLabel(dateText) {
   const [, month, day] = dateText.split("-");
   return `${Number(month)}月${Number(day)}日`;
+}
+
+function formatDateTime(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return value;
+  return new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit"
+  }).format(date);
 }
 
 function renderMatch(index) {
@@ -559,9 +642,9 @@ window.addEventListener("hashchange", () => {
   if (teams[teamId]) openTeam(teamId);
 });
 
-renderGroups();
 renderTabs();
 initTakeBox();
+loadLiveStandings().finally(renderGroups);
 
 const initialTeam = location.hash.replace("#team-", "");
 if (teams[initialTeam]) openTeam(initialTeam);
