@@ -76,24 +76,32 @@ if (!response.ok) {
 const payload = await response.json();
 const groups = (payload.standings || [])
   .filter((standing) => standing.type === "TOTAL" && Array.isArray(standing.table))
-  .map((standing) => ({
-    name: String(standing.group || "").replace(/^GROUP_?/i, "").slice(0, 1),
-    rows: standing.table.map((row) => {
-      const teamName = row.team?.name || row.team?.shortName || "";
-      const id = teamMap.get(teamName) || teamMap.get(row.team?.shortName) || "";
-      return {
-        id,
-        team: teamName,
-        played: row.playedGames,
-        won: row.won,
-        drawn: row.draw,
-        lost: row.lost,
-        gf: row.goalsFor,
-        ga: row.goalsAgainst,
-        points: row.points
-      };
-    }).filter((row) => row.id)
-  }))
+  .map((standing) => {
+    const groupName = String(standing.group || "")
+      .replace(/^GROUP[\s_-]*/i, "")
+      .trim()
+      .slice(0, 1)
+      .toUpperCase();
+
+    return {
+      name: groupName,
+      rows: standing.table.map((row) => {
+        const teamName = row.team?.name || row.team?.shortName || "";
+        const id = teamMap.get(teamName) || teamMap.get(row.team?.shortName) || "";
+        return {
+          id,
+          team: teamName,
+          played: row.playedGames,
+          won: row.won,
+          drawn: row.draw,
+          lost: row.lost,
+          gf: row.goalsFor,
+          ga: row.goalsAgainst,
+          points: row.points
+        };
+      }).filter((row) => row.id)
+    };
+  })
   .filter((group) => group.name && group.rows.length);
 
 if (!groups.length) {
