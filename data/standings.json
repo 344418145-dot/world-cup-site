@@ -1,9 +1,9 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-06-22T14:41:45.362Z",
+  "updatedAt": "2026-06-22T14:59:06.267Z",
   "groups": [
     {
-      "name": " ",
+      "name": "A",
       "rows": [
         {
           "id": "mexico",
@@ -52,7 +52,7 @@
       ]
     },
     {
-      "name": " ",
+      "name": "B",
       "rows": [
         {
           "id": "canada",
@@ -90,7 +90,7 @@
       ]
     },
     {
-      "name": " ",
+      "name": "C",
       "rows": [
         {
           "id": "brazil",
@@ -139,7 +139,7 @@
       ]
     },
     {
-      "name": " ",
+      "name": "D",
       "rows": [
         {
           "id": "usa",
@@ -188,7 +188,7 @@
       ]
     },
     {
-      "name": " ",
+      "name": "E",
       "rows": [
         {
           "id": "germany",
@@ -226,7 +226,7 @@
       ]
     },
     {
-      "name": " ",
+      "name": "F",
       "rows": [
         {
           "id": "netherlands",
@@ -275,7 +275,7 @@
       ]
     },
     {
-      "name": " ",
+      "name": "G",
       "rows": [
         {
           "id": "egypt",
@@ -324,7 +324,7 @@
       ]
     },
     {
-      "name": " ",
+      "name": "H",
       "rows": [
         {
           "id": "spain",
@@ -373,7 +373,7 @@
       ]
     },
     {
-      "name": " ",
+      "name": "I",
       "rows": [
         {
           "id": "norway",
@@ -422,7 +422,7 @@
       ]
     },
     {
-      "name": " ",
+      "name": "J",
       "rows": [
         {
           "id": "argentina",
@@ -471,7 +471,7 @@
       ]
     },
     {
-      "name": " ",
+      "name": "K",
       "rows": [
         {
           "id": "colombia",
@@ -520,7 +520,7 @@
       ]
     },
     {
-      "name": " ",
+      "name": "L",
       "rows": [
         {
           "id": "england",
