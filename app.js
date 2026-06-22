@@ -79,26 +79,66 @@ const schedules = {
   L: [["英格兰", "巴拿马", "6月18日"], ["克罗地亚", "加纳", "6月19日"], ["英格兰", "克罗地亚", "6月24日"], ["巴拿马", "加纳", "6月25日"], ["英格兰", "加纳", "6月30日"], ["巴拿马", "克罗地亚", "6月30日"]]
 };
 
-const todayMatches = [
-  match("senegal", "norway", "Group I", "12:00", "北京时间 2026年6月23日 03:00", "洛杉矶", {
+const dailyMatches = [
+  match("2026-06-22", "senegal", "norway", "Group I", "12:00", "北京时间 2026年6月23日 03:00", "洛杉矶", {
     h2h: "近 5 次：塞内加尔 1 胜 2 平 2 负",
     form: "塞内加尔 W-D-W-L-D · 挪威 W-W-D-L-W",
     ranking: "塞内加尔 #17 · 挪威 #44"
   }),
-  match("france", "iraq", "Group I", "15:00", "北京时间 2026年6月23日 06:00", "堪萨斯城", {
+  match("2026-06-22", "france", "iraq", "Group I", "15:00", "北京时间 2026年6月23日 06:00", "堪萨斯城", {
     h2h: "暂无正式比赛交锋记录",
     form: "法国 W-W-D-W-L · 伊拉克 W-D-L-W-W",
     ranking: "法国 #2 · 伊拉克 #58"
   }),
-  match("argentina", "austria", "Group J", "18:00", "北京时间 2026年6月23日 09:00", "达拉斯", {
+  match("2026-06-22", "argentina", "austria", "Group J", "18:00", "北京时间 2026年6月23日 09:00", "达拉斯", {
     h2h: "近 5 次：阿根廷 2 胜 1 平 2 负",
     form: "阿根廷 W-W-W-D-W · 奥地利 W-D-W-L-W",
     ranking: "阿根廷 #1 · 奥地利 #25"
   }),
-  match("jordan", "algeria", "Group J", "21:00", "北京时间 2026年6月23日 12:00", "休斯敦", {
+  match("2026-06-22", "jordan", "algeria", "Group J", "21:00", "北京时间 2026年6月23日 12:00", "休斯敦", {
     h2h: "近 3 次：约旦 0 胜 1 平 2 负",
     form: "约旦 D-W-L-W-D · 阿尔及利亚 W-W-D-L-W",
     ranking: "约旦 #68 · 阿尔及利亚 #43"
+  }),
+  match("2026-06-23", "france", "senegal", "Group I", "12:00", "北京时间 2026年6月24日 03:00", "费城", {
+    h2h: "近 5 次：法国 3 胜 1 平 1 负",
+    form: "法国 W-W-D-W-L · 塞内加尔 W-D-W-L-D",
+    ranking: "法国 #2 · 塞内加尔 #17"
+  }),
+  match("2026-06-23", "iraq", "norway", "Group I", "15:00", "北京时间 2026年6月24日 06:00", "西雅图", {
+    h2h: "暂无正式比赛交锋记录",
+    form: "伊拉克 W-D-L-W-W · 挪威 W-W-D-L-W",
+    ranking: "伊拉克 #58 · 挪威 #44"
+  }),
+  match("2026-06-23", "argentina", "algeria", "Group J", "18:00", "北京时间 2026年6月24日 09:00", "亚特兰大", {
+    h2h: "近 2 次：阿根廷 1 胜 1 平 0 负",
+    form: "阿根廷 W-W-W-D-W · 阿尔及利亚 W-W-D-L-W",
+    ranking: "阿根廷 #1 · 阿尔及利亚 #43"
+  }),
+  match("2026-06-23", "jordan", "austria", "Group J", "21:00", "北京时间 2026年6月24日 12:00", "旧金山湾区", {
+    h2h: "暂无正式比赛交锋记录",
+    form: "约旦 D-W-L-W-D · 奥地利 W-D-W-L-W",
+    ranking: "约旦 #68 · 奥地利 #25"
+  }),
+  match("2026-06-24", "portugal", "uzbekistan", "Group K", "12:00", "北京时间 2026年6月25日 03:00", "温哥华", {
+    h2h: "暂无正式比赛交锋记录",
+    form: "葡萄牙 W-W-L-W-D · 乌兹别克斯坦 W-D-W-W-L",
+    ranking: "葡萄牙 #6 · 乌兹别克斯坦 #64"
+  }),
+  match("2026-06-24", "drCongo", "colombia", "Group K", "15:00", "北京时间 2026年6月25日 06:00", "迈阿密", {
+    h2h: "暂无正式比赛交锋记录",
+    form: "民主刚果 W-L-D-W-D · 哥伦比亚 W-W-D-W-L",
+    ranking: "民主刚果 #61 · 哥伦比亚 #12"
+  }),
+  match("2026-06-24", "england", "croatia", "Group L", "18:00", "北京时间 2026年6月25日 09:00", "纽约/新泽西", {
+    h2h: "近 5 次：英格兰 2 胜 1 平 2 负",
+    form: "英格兰 W-D-W-L-W · 克罗地亚 W-W-D-L-W",
+    ranking: "英格兰 #4 · 克罗地亚 #10"
+  }),
+  match("2026-06-24", "panama", "ghana", "Group L", "21:00", "北京时间 2026年6月25日 12:00", "多伦多", {
+    h2h: "暂无正式比赛交锋记录",
+    form: "巴拿马 W-L-W-D-L · 加纳 W-D-L-W-W",
+    ranking: "巴拿马 #45 · 加纳 #60"
   })
 ];
 
@@ -123,8 +163,8 @@ function group(name, ids, rows) {
   return { name, rows: ids.map((id, index) => ({ id, stats: rows[index] })) };
 }
 
-function match(home, away, groupName, time, beijingTime, venue, data) {
-  return { home, away, groupName, time, beijingTime, venue, data };
+function match(date, home, away, groupName, time, beijingTime, venue, data) {
+  return { date, home, away, groupName, time, beijingTime, venue, data };
 }
 
 function flagUrl(teamId) {
@@ -195,6 +235,55 @@ function beijingScheduleLabel(game, index) {
   return `北京时间 2026年${game[2]} ${game[3] || timeSlots[index % timeSlots.length]}`;
 }
 
+function allDailyMatches() {
+  const explicitKeys = new Set(dailyMatches.map((item) => `${item.date}:${item.home}:${item.away}`));
+  const generated = Object.entries(schedules).flatMap(([groupName, games]) =>
+    games
+      .map((game, index) => scheduleGameToMatch(groupName, game, index))
+      .filter((item) => item && !explicitKeys.has(`${item.date}:${item.home}:${item.away}`))
+  );
+
+  return [...dailyMatches, ...generated].sort((a, b) => `${a.date}-${a.time}`.localeCompare(`${b.date}-${b.time}`));
+}
+
+function scheduleGameToMatch(groupName, game, index) {
+  const home = teamIdFromChineseName(game[0]);
+  const away = teamIdFromChineseName(game[1]);
+  if (!home || !away) return null;
+
+  const localTimes = ["12:00", "15:00", "18:00", "21:00", "12:00", "15:00"];
+  const beijingTimes = ["03:00", "06:00", "09:00", "12:00", "03:00", "06:00"];
+  return match(
+    chineseDateToIso(game[2]),
+    home,
+    away,
+    `Group ${groupName}`,
+    localTimes[index % localTimes.length],
+    `北京时间 2026年${game[2]} ${game[3] || beijingTimes[index % beijingTimes.length]}`,
+    "待定",
+    defaultMatchData(home, away)
+  );
+}
+
+function teamIdFromChineseName(name) {
+  return Object.values(teams).find((teamItem) => teamItem.cn === name)?.id;
+}
+
+function chineseDateToIso(label) {
+  const [, month, day] = label.match(/(\d+)月(\d+)日/) || [];
+  return `2026-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+
+function defaultMatchData(homeId, awayId) {
+  const home = teams[homeId];
+  const away = teams[awayId];
+  return {
+    h2h: "暂无完整交锋数据",
+    form: `${home.cn} 待更新 · ${away.cn} 待更新`,
+    ranking: `${home.cn} 待更新 · ${away.cn} 待更新`
+  };
+}
+
 function renderGroups() {
   document.querySelector("#groups").innerHTML = groups.map(renderGroup).join("");
 }
@@ -246,8 +335,39 @@ function renderGroup(groupData) {
   `;
 }
 
+let activeMatches = [];
+
+function todayKey() {
+  const override = new URLSearchParams(location.search).get("date");
+  if (override) return override;
+  return new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
+  }).format(new Date());
+}
+
+function getDailyMatches() {
+  const key = todayKey();
+  const records = allDailyMatches();
+  const matches = records.filter((item) => item.date === key);
+  if (matches.length) return { key, matches, isFallback: false };
+
+  const next = records.find((item) => item.date > key) || records[0];
+  return {
+    key: next.date,
+    matches: records.filter((item) => item.date === next.date),
+    isFallback: true
+  };
+}
+
 function renderTabs(activeIndex = 0) {
-  const tabs = todayMatches
+  const daily = getDailyMatches();
+  activeMatches = daily.matches;
+  updateMatchTitle(daily);
+
+  const tabs = activeMatches
     .map((m, index) => {
       const home = teams[m.home];
       const away = teams[m.away];
@@ -270,8 +390,23 @@ function renderTabs(activeIndex = 0) {
   renderMatch(activeIndex);
 }
 
+function updateMatchTitle(daily) {
+  const title = document.querySelector(".matches-title h2");
+  if (!title) return;
+  title.textContent = daily.isFallback ? `${formatDateLabel(daily.key)} 对阵` : "今日对阵与数据";
+}
+
+function formatDateLabel(dateText) {
+  const [, month, day] = dateText.split("-");
+  return `${Number(month)}月${Number(day)}日`;
+}
+
 function renderMatch(index) {
-  const m = todayMatches[index];
+  const m = activeMatches[index];
+  if (!m) {
+    document.querySelector("#matchPanel").innerHTML = `<div class="empty-state">今日暂无比赛。</div>`;
+    return;
+  }
   const home = teams[m.home];
   const away = teams[m.away];
   document.querySelector("#matchPanel").innerHTML = `

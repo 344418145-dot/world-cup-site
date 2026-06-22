@@ -653,6 +653,13 @@ tr.third .pos {
   text-align: right;
 }
 
+.empty-state {
+  padding: 1rem;
+  color: var(--muted);
+  font-weight: 800;
+  text-align: center;
+}
+
 .overlay {
   position: fixed;
   inset: 0;
