@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-06-22T14:59:06.267Z",
+  "updatedAt": "2026-06-22T22:16:21.020Z",
   "groups": [
     {
       "name": "A",
@@ -376,6 +376,17 @@
       "name": "I",
       "rows": [
         {
+          "id": "france",
+          "team": "France",
+          "played": 2,
+          "won": 2,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 4,
+          "ga": 1,
+          "points": 6
+        },
+        {
           "id": "norway",
           "team": "Norway",
           "played": 1,
@@ -383,17 +394,6 @@
           "drawn": 0,
           "lost": 0,
           "gf": 4,
-          "ga": 1,
-          "points": 3
-        },
-        {
-          "id": "france",
-          "team": "France",
-          "played": 1,
-          "won": 1,
-          "drawn": 0,
-          "lost": 0,
-          "gf": 3,
           "ga": 1,
           "points": 3
         },
@@ -411,12 +411,12 @@
         {
           "id": "iraq",
           "team": "Iraq",
-          "played": 1,
+          "played": 2,
           "won": 0,
           "drawn": 0,
-          "lost": 1,
+          "lost": 2,
           "gf": 1,
-          "ga": 4,
+          "ga": 5,
           "points": 0
         }
       ]
@@ -427,23 +427,23 @@
         {
           "id": "argentina",
           "team": "Argentina",
-          "played": 1,
-          "won": 1,
+          "played": 2,
+          "won": 2,
           "drawn": 0,
           "lost": 0,
-          "gf": 3,
+          "gf": 5,
           "ga": 0,
-          "points": 3
+          "points": 6
         },
         {
           "id": "austria",
           "team": "Austria",
-          "played": 1,
+          "played": 2,
           "won": 1,
           "drawn": 0,
-          "lost": 0,
+          "lost": 1,
           "gf": 3,
-          "ga": 1,
+          "ga": 3,
           "points": 3
         },
         {
