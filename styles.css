@@ -34,8 +34,7 @@ button {
 }
 
 .topbar {
-  position: sticky;
-  top: 0;
+  position: static;
   z-index: 20;
   display: flex;
   align-items: center;
@@ -55,6 +54,20 @@ button {
 
 .topbar h1 {
   font-size: clamp(1.2rem, 1vw + 1rem, 1.8rem);
+}
+
+.inline-date {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.5rem;
+  padding: 0.12rem 0.45rem;
+  color: #0c614f;
+  font-size: 0.72em;
+  font-weight: 800;
+  vertical-align: middle;
+  background: #e7f5f0;
+  border: 1px solid #b8dfd2;
+  border-radius: 999px;
 }
 
 .eyebrow {
@@ -881,19 +894,48 @@ tr.third .pos {
   }
 
   .topbar {
-    position: static;
-    gap: 0.55rem;
-    padding: 0.7rem 0.8rem;
+    display: block;
+    align-items: center;
+    width: 100vw;
+    max-width: 100vw;
+    padding: 0.55rem 0.65rem;
+    overflow: hidden;
   }
 
   .topbar h1 {
-    font-size: 1.2rem;
+    overflow: hidden;
+    font-size: 0.98rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .inline-date {
+    margin-left: 0.35rem;
+    padding: 0.08rem 0.32rem;
+    font-size: 0.66em;
+  }
+
+  .topbar > div:first-child {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .topbar .eyebrow {
+    display: none;
   }
 
   .status-pill {
-    min-height: 1.9rem;
-    padding: 0 0.65rem;
-    font-size: 0.76rem;
+    flex: 0 0 auto;
+    max-width: 7.2rem;
+    min-height: 1.55rem;
+    padding: 0 0.42rem;
+    font-size: 0.64rem;
+  }
+
+  .live-dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    box-shadow: 0 0 0 0.25rem rgba(217, 72, 65, 0.12);
   }
 
   .eyebrow {
@@ -913,6 +955,11 @@ tr.third .pos {
     max-width: calc(100vw - 1.1rem);
     gap: 0.35rem;
     margin: 1rem 0 0.55rem;
+  }
+
+  .matches-title {
+    margin-top: 0.65rem;
+    margin-bottom: 0.42rem;
   }
 
   .section-head > * {

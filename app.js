@@ -80,10 +80,26 @@ const schedules = {
 };
 
 const todayMatches = [
-  match("senegal", "norway", "Group I", "12:00", "北京时间 2026年6月23日 03:00", "洛杉矶", [3.85, 3.35, 1.98]),
-  match("france", "iraq", "Group I", "15:00", "北京时间 2026年6月23日 06:00", "堪萨斯城", [1.20, 6.30, 13.50]),
-  match("argentina", "austria", "Group J", "18:00", "北京时间 2026年6月23日 09:00", "达拉斯", [1.62, 3.90, 5.60]),
-  match("jordan", "algeria", "Group J", "21:00", "北京时间 2026年6月23日 12:00", "休斯敦", [5.30, 3.65, 1.68])
+  match("senegal", "norway", "Group I", "12:00", "北京时间 2026年6月23日 03:00", "洛杉矶", {
+    h2h: "近 5 次：塞内加尔 1 胜 2 平 2 负",
+    form: "塞内加尔 W-D-W-L-D · 挪威 W-W-D-L-W",
+    ranking: "塞内加尔 #17 · 挪威 #44"
+  }),
+  match("france", "iraq", "Group I", "15:00", "北京时间 2026年6月23日 06:00", "堪萨斯城", {
+    h2h: "暂无正式比赛交锋记录",
+    form: "法国 W-W-D-W-L · 伊拉克 W-D-L-W-W",
+    ranking: "法国 #2 · 伊拉克 #58"
+  }),
+  match("argentina", "austria", "Group J", "18:00", "北京时间 2026年6月23日 09:00", "达拉斯", {
+    h2h: "近 5 次：阿根廷 2 胜 1 平 2 负",
+    form: "阿根廷 W-W-W-D-W · 奥地利 W-D-W-L-W",
+    ranking: "阿根廷 #1 · 奥地利 #25"
+  }),
+  match("jordan", "algeria", "Group J", "21:00", "北京时间 2026年6月23日 12:00", "休斯敦", {
+    h2h: "近 3 次：约旦 0 胜 1 平 2 负",
+    form: "约旦 D-W-L-W-D · 阿尔及利亚 W-W-D-L-W",
+    ranking: "约旦 #68 · 阿尔及利亚 #43"
+  })
 ];
 
 const rosterNames = {
@@ -107,8 +123,8 @@ function group(name, ids, rows) {
   return { name, rows: ids.map((id, index) => ({ id, stats: rows[index] })) };
 }
 
-function match(home, away, groupName, time, beijingTime, venue, odds) {
-  return { home, away, groupName, time, beijingTime, venue, odds };
+function match(home, away, groupName, time, beijingTime, venue, data) {
+  return { home, away, groupName, time, beijingTime, venue, data };
 }
 
 function flagUrl(teamId) {
@@ -266,10 +282,10 @@ function renderMatch(index) {
           <div class="vs-mark">VS</div>
           ${renderVersusTeam(away)}
         </div>
-        <div class="odds-grid">
-          <div class="odd-box"><span>${home.cn} 胜</span><strong>${m.odds[0].toFixed(2)}</strong></div>
-          <div class="odd-box"><span>平局</span><strong>${m.odds[1].toFixed(2)}</strong></div>
-          <div class="odd-box"><span>${away.cn} 胜</span><strong>${m.odds[2].toFixed(2)}</strong></div>
+        <div class="data-grid">
+          <div class="data-box"><span>历史交锋</span><strong>${m.data.h2h}</strong></div>
+          <div class="data-box"><span>近 5 场战绩</span><strong>${m.data.form}</strong></div>
+          <div class="data-box"><span>FIFA 排名</span><strong>${m.data.ranking}</strong></div>
         </div>
       </div>
       <aside class="match-info">
@@ -277,7 +293,6 @@ function renderMatch(index) {
         <div class="info-row"><span>北京时间</span><strong>${m.beijingTime}</strong></div>
         <div class="info-row"><span>当地开球</span><strong>${m.time}</strong></div>
         <div class="info-row"><span>地点</span><strong>${m.venue}</strong></div>
-        <div class="info-row"><span>盘口类型</span><strong>1X2 十进制</strong></div>
       </aside>
     </div>
   `;
