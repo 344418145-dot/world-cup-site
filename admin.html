@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>世界杯赛况中心后台</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="admin-shell">
+    <main class="admin-main">
+      <section id="loginPanel" class="admin-login">
+        <p class="eyebrow">Private Admin</p>
+        <h1>后台编辑</h1>
+        <p>请输入本地编辑口令。</p>
+        <label for="adminPassword">口令</label>
+        <input id="adminPassword" type="password" autocomplete="current-password" placeholder="输入口令" />
+        <button id="unlockAdmin" class="save-button" type="button">进入后台</button>
+        <p id="loginStatus" class="take-status" aria-live="polite"></p>
+      </section>
+
+      <section id="editorPanel" class="admin-editor" hidden>
+        <div class="take-head">
+          <div>
+            <p class="eyebrow">Match Notes Admin</p>
+            <h1>编辑我的比赛看法</h1>
+          </div>
+          <a class="back-link" href="./index.html">返回前台</a>
+        </div>
+        <label for="takeInput">观点内容</label>
+        <textarea id="takeInput" rows="12" placeholder="写下你对今天比赛、赔率变化、阵容倾向或投注判断的看法。"></textarea>
+        <div class="admin-actions">
+          <p id="takeStatus" class="take-status" aria-live="polite"></p>
+          <button id="saveTake" class="save-button" type="button">保存到前台</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./admin.js"></script>
+  </body>
+</html>

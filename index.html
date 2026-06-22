@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2026 世界杯赛况中心</title>
+    <link rel="preconnect" href="https://flagcdn.com" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">FIFA World Cup 2026</p>
+        <h1>世界杯赛况中心</h1>
+      </div>
+      <div class="status-pill">
+        <span class="live-dot"></span>
+        <span>截至 2026-06-22</span>
+      </div>
+    </header>
+
+    <main>
+      <section class="section-head">
+        <div>
+          <p class="eyebrow">Groups & Standings</p>
+          <h2>小组分组与积分</h2>
+        </div>
+        <div class="legend">
+          <span><i class="rank auto"></i>晋级区</span>
+          <span><i class="rank third"></i>第三名竞争</span>
+        </div>
+      </section>
+      <section id="groups" class="groups-grid" aria-label="小组积分"></section>
+
+      <section class="section-head matches-title">
+        <div>
+          <p class="eyebrow">Today Matches</p>
+          <h2>今日对阵与赔率</h2>
+        </div>
+        <p class="odds-note">赔率为 1X2 十进制盘口快照，临场会变化。</p>
+      </section>
+      <section class="match-board">
+        <div id="matchTabs" class="match-tabs" role="tablist" aria-label="今日比赛"></div>
+        <div id="matchPanel" class="match-panel"></div>
+      </section>
+      <section class="my-take" aria-labelledby="takeTitle">
+        <div class="take-head">
+          <div>
+            <p class="eyebrow">Match Notes</p>
+            <h2 id="takeTitle">比赛观点</h2>
+          </div>
+        </div>
+        <div id="takeDisplay" class="take-display">暂无观点。</div>
+      </section>
+    </main>
+
+    <div id="teamOverlay" class="overlay" aria-hidden="true">
+      <article class="team-page" role="dialog" aria-modal="true" aria-labelledby="teamName">
+        <button id="closeTeam" class="icon-button close-button" type="button" aria-label="关闭球队详情">×</button>
+        <div id="teamDetail"></div>
+      </article>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
