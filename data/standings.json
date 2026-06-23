@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-06-22T22:16:21.020Z",
+  "updatedAt": "2026-06-23T10:48:16.716Z",
   "groups": [
     {
       "name": "A",
@@ -382,30 +382,30 @@
           "won": 2,
           "drawn": 0,
           "lost": 0,
-          "gf": 4,
+          "gf": 6,
           "ga": 1,
           "points": 6
         },
         {
           "id": "norway",
           "team": "Norway",
-          "played": 1,
-          "won": 1,
+          "played": 2,
+          "won": 2,
           "drawn": 0,
           "lost": 0,
-          "gf": 4,
-          "ga": 1,
-          "points": 3
+          "gf": 7,
+          "ga": 3,
+          "points": 6
         },
         {
           "id": "senegal",
           "team": "Senegal",
-          "played": 1,
+          "played": 2,
           "won": 0,
           "drawn": 0,
-          "lost": 1,
-          "gf": 1,
-          "ga": 3,
+          "lost": 2,
+          "gf": 3,
+          "ga": 6,
           "points": 0
         },
         {
@@ -416,7 +416,7 @@
           "drawn": 0,
           "lost": 2,
           "gf": 1,
-          "ga": 5,
+          "ga": 7,
           "points": 0
         }
       ]
@@ -447,25 +447,25 @@
           "points": 3
         },
         {
-          "id": "jordan",
-          "team": "Jordan",
-          "played": 1,
-          "won": 0,
-          "drawn": 0,
-          "lost": 1,
-          "gf": 1,
-          "ga": 3,
-          "points": 0
-        },
-        {
           "id": "algeria",
           "team": "Algeria",
-          "played": 1,
-          "won": 0,
+          "played": 2,
+          "won": 1,
           "drawn": 0,
           "lost": 1,
-          "gf": 0,
-          "ga": 3,
+          "gf": 2,
+          "ga": 4,
+          "points": 3
+        },
+        {
+          "id": "jordan",
+          "team": "Jordan",
+          "played": 2,
+          "won": 0,
+          "drawn": 0,
+          "lost": 2,
+          "gf": 2,
+          "ga": 5,
           "points": 0
         }
       ]
