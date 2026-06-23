@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-06-23T10:48:16.716Z",
+  "updatedAt": "2026-06-23T17:31:31.303Z",
   "groups": [
     {
       "name": "A",
@@ -474,6 +474,17 @@
       "name": "K",
       "rows": [
         {
+          "id": "portugal",
+          "team": "Portugal",
+          "played": 2,
+          "won": 1,
+          "drawn": 1,
+          "lost": 0,
+          "gf": 3,
+          "ga": 2,
+          "points": 4
+        },
+        {
           "id": "colombia",
           "team": "Colombia",
           "played": 1,
@@ -496,25 +507,14 @@
           "points": 1
         },
         {
-          "id": "portugal",
-          "team": "Portugal",
-          "played": 1,
-          "won": 0,
-          "drawn": 1,
-          "lost": 0,
-          "gf": 1,
-          "ga": 1,
-          "points": 1
-        },
-        {
           "id": "uzbekistan",
           "team": "Uzbekistan",
-          "played": 1,
+          "played": 2,
           "won": 0,
           "drawn": 0,
-          "lost": 1,
-          "gf": 1,
-          "ga": 3,
+          "lost": 2,
+          "gf": 2,
+          "ga": 5,
           "points": 0
         }
       ]
