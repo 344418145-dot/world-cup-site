@@ -126,12 +126,45 @@ const dailyMatches = [
     form: "哥伦比亚 W-W-D-W-L · 民主刚果 W-L-D-W-D",
     ranking: "哥伦比亚 #12 · 民主刚果 #61"
   }),
-  match("2026-06-24", "mexico", "czechia", "Group A", "12:00", "北京时间 2026年6月25日 03:00", "待定", {
-    h2h: "近 3 次：墨西哥 1 胜 1 平 1 负",
-    form: "墨西哥 W-W-D-L-W · 捷克 D-W-L-W-D",
-    ranking: "墨西哥 #14 · 捷克 #39"
+  match("2026-06-24", "switzerland", "canada", "Group B", "12:00 PT", "北京时间 2026年6月25日 03:00", "温哥华", {
+    h2h: "两队唯一交锋：加拿大 3-1 瑞士",
+    form: "瑞士 D-D-W-L-W · 加拿大 W-W-W-D-L",
+    ranking: "瑞士 待更新 · 加拿大 待更新"
+  }),
+  match("2026-06-24", "bosnia", "qatar", "Group B", "12:00 PT", "北京时间 2026年6月25日 03:00", "西雅图", {
+    h2h: "近 2 次：卡塔尔 1 胜 1 平 0 负",
+    form: "波黑 D-D-L-W-L · 卡塔尔 L-L-L-D-W",
+    ranking: "波黑 待更新 · 卡塔尔 待更新"
+  }),
+  match("2026-06-24", "scotland", "brazil", "Group C", "18:00 ET", "北京时间 2026年6月25日 06:00", "迈阿密", {
+    h2h: "巴西对苏格兰保持不败",
+    form: "苏格兰 D-L-D-W-L · 巴西 W-W-D-W-L",
+    ranking: "苏格兰 待更新 · 巴西 待更新"
+  }),
+  match("2026-06-24", "morocco", "haiti", "Group C", "18:00 ET", "北京时间 2026年6月25日 06:00", "亚特兰大", {
+    h2h: "两队此前无正式交锋记录",
+    form: "摩洛哥 D-W-W-D-W · 海地 L-L-D-W-L",
+    ranking: "摩洛哥 待更新 · 海地 待更新"
+  }),
+  match("2026-06-24", "czechia", "mexico", "Group A", "19:00 CT", "北京时间 2026年6月25日 09:00", "墨西哥城", {
+    h2h: "两队唯一交锋：捷克 2-1 墨西哥",
+    form: "捷克 D-W-L-W-D · 墨西哥 W-W-D-L-W",
+    ranking: "捷克 #40 · 墨西哥 #14"
+  }),
+  match("2026-06-24", "southAfrica", "southKorea", "Group A", "19:00 CT", "北京时间 2026年6月25日 09:00", "蒙特雷", {
+    h2h: "两队此前无正式交锋记录",
+    form: "南非 D-L-D-W-L · 韩国 W-L-W-D-W",
+    ranking: "南非 #60 · 韩国 #25"
   })
 ];
+
+let matchFeed = [...dailyMatches];
+
+let matchesSource = {
+  updatedAt: "",
+  isLive: false,
+  message: "静态备用赛程"
+};
 
 const rosterNames = {
   france: ["麦克·迈尼昂", "布里斯·桑巴", "阿尔方斯·阿雷奥拉", "儒勒·孔德", "威廉·萨利巴", "达约·乌帕梅卡诺", "易卜拉希马·科纳特", "特奥·埃尔南德斯", "费兰·门迪", "若纳唐·克洛斯", "爱德华多·卡马文加", "阿德里安·拉比奥", "恩戈洛·坎特", "沃伦·扎伊尔-埃梅里", "尤素夫·福法纳", "奥雷利安·楚阿梅尼", "安托万·格列兹曼", "基利安·姆巴佩", "奥斯曼·登贝莱", "马库斯·图拉姆", "兰德尔·科洛·穆阿尼", "奥利维耶·吉鲁", "布拉德利·巴尔科拉", "克里斯托弗·恩昆库", "金斯利·科曼", "穆阿尼"],
@@ -227,7 +260,7 @@ function beijingScheduleLabel(game, index) {
 }
 
 function allDailyMatches() {
-  return [...dailyMatches].sort((a, b) => `${a.date}-${a.time}`.localeCompare(`${b.date}-${b.time}`));
+  return [...matchFeed].sort((a, b) => `${a.date}-${a.time}`.localeCompare(`${b.date}-${b.time}`));
 }
 
 function scheduleGameToMatch(groupName, game, index) {
@@ -275,6 +308,73 @@ function defaultMatchData(homeId, awayId) {
     form: `${home.cn} 待更新 · ${away.cn} 待更新`,
     ranking: `${home.cn} 待更新 · ${away.cn} 待更新`
   };
+}
+
+async function loadLiveMatches() {
+  try {
+    const response = await fetch(`./data/matches.json?v=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) throw new Error("No matches feed");
+    const payload = await response.json();
+    applyMatchesPayload(payload);
+  } catch (error) {
+    matchFeed = [...dailyMatches];
+    matchesSource = {
+      updatedAt: "",
+      isLive: false,
+      message: "静态备用赛程"
+    };
+  }
+}
+
+function applyMatchesPayload(payload) {
+  const rows = (payload?.matches || [])
+    .map(normalizeMatchRecord)
+    .filter(Boolean);
+
+  if (!rows.length) return;
+
+  matchFeed = rows;
+  matchesSource = {
+    updatedAt: payload.updatedAt || "",
+    isLive: true,
+    message: payload.source || "实时赛程"
+  };
+}
+
+function normalizeMatchRecord(sourceMatch) {
+  const home = teamIdFromAnyName(sourceMatch.home || sourceMatch.homeTeam || sourceMatch.homeTeamName);
+  const away = teamIdFromAnyName(sourceMatch.away || sourceMatch.awayTeam || sourceMatch.awayTeamName);
+  if (!home || !away) return null;
+
+  return match(
+    sourceMatch.date || "",
+    home,
+    away,
+    sourceMatch.groupName || sourceMatch.group || "Group",
+    sourceMatch.time || "待定",
+    sourceMatch.beijingTime || formatBeijingKickoff(sourceMatch.utcDate),
+    sourceMatch.venue || "待定",
+    { ...defaultMatchData(home, away), ...(sourceMatch.data || {}) }
+  );
+}
+
+function formatBeijingKickoff(value) {
+  if (!value) return "北京时间待定";
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "北京时间待定";
+  const parts = new Intl.DateTimeFormat("zh-CN", {
+    timeZone: "Asia/Shanghai",
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hourCycle: "h23"
+  }).formatToParts(date).reduce((memo, part) => {
+    memo[part.type] = part.value;
+    return memo;
+  }, {});
+  return `北京时间 ${parts.year}年${parts.month}月${parts.day}日 ${parts.hour}:${parts.minute}`;
 }
 
 async function loadLiveStandings() {
@@ -673,8 +773,8 @@ window.addEventListener("hashchange", () => {
   if (teams[teamId]) openTeam(teamId);
 });
 
-renderTabs();
 initTakeBox();
+loadLiveMatches().finally(renderTabs);
 loadLiveStandings().finally(renderGroups);
 
 const initialTeam = location.hash.replace("#team-", "");
