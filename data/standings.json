@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-06-24T01:53:15.618Z",
+  "updatedAt": "2026-06-24T07:02:39.974Z",
   "groups": [
     {
       "name": "A",
@@ -75,6 +75,17 @@
           "gf": 5,
           "ga": 2,
           "points": 4
+        },
+        {
+          "id": "bosnia",
+          "team": "Bosnia-Herzegovina",
+          "played": 2,
+          "won": 0,
+          "drawn": 1,
+          "lost": 1,
+          "gf": 2,
+          "ga": 5,
+          "points": 1
         },
         {
           "id": "qatar",
@@ -221,6 +232,17 @@
           "lost": 1,
           "gf": 0,
           "ga": 1,
+          "points": 1
+        },
+        {
+          "id": "curacao",
+          "team": "Curaçao",
+          "played": 2,
+          "won": 0,
+          "drawn": 1,
+          "lost": 1,
+          "gf": 1,
+          "ga": 7,
           "points": 1
         }
       ]
@@ -474,6 +496,17 @@
       "name": "K",
       "rows": [
         {
+          "id": "colombia",
+          "team": "Colombia",
+          "played": 2,
+          "won": 2,
+          "drawn": 0,
+          "lost": 0,
+          "gf": 4,
+          "ga": 1,
+          "points": 6
+        },
+        {
           "id": "portugal",
           "team": "Portugal",
           "played": 2,
@@ -485,25 +518,14 @@
           "points": 4
         },
         {
-          "id": "colombia",
-          "team": "Colombia",
-          "played": 1,
-          "won": 1,
-          "drawn": 0,
-          "lost": 0,
-          "gf": 3,
-          "ga": 1,
-          "points": 3
-        },
-        {
           "id": "drCongo",
           "team": "Congo DR",
-          "played": 1,
+          "played": 2,
           "won": 0,
           "drawn": 1,
-          "lost": 0,
+          "lost": 1,
           "gf": 1,
-          "ga": 1,
+          "ga": 2,
           "points": 1
         },
         {
