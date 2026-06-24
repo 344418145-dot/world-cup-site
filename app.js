@@ -290,6 +290,13 @@ function teamIdFromAnyName(name) {
   if (!name) return "";
   if (teams[name]) return name;
   const normalized = String(name).trim().toLowerCase();
+  const aliases = {
+    "bosnia-herzegovina": "bosnia",
+    "bosnia herzegovina": "bosnia",
+    "bosnia & herzegovina": "bosnia",
+    "curaçao": "curacao"
+  };
+  if (aliases[normalized]) return aliases[normalized];
   return Object.values(teams).find((teamItem) =>
     [teamItem.id, teamItem.cn, teamItem.en].some((value) => String(value).trim().toLowerCase() === normalized)
   )?.id || "";
@@ -399,7 +406,7 @@ function applyStandingsPayload(payload) {
     const groupData = groups.find((item) => item.name === sourceGroup.name);
     if (!groupData) return;
 
-    const rows = sourceGroup.rows
+    const liveRows = sourceGroup.rows
       .map((sourceRow) => {
         const teamId = teamIdFromAnyName(sourceRow.id || sourceRow.team || sourceRow.name);
         if (!teamId) return null;
@@ -418,7 +425,13 @@ function applyStandingsPayload(payload) {
       })
       .filter(Boolean);
 
-    if (rows.length) groupData.rows = rows;
+    if (liveRows.length) {
+      const liveIds = new Set(liveRows.map((row) => row.id));
+      const missingRows = groupData.rows
+        .filter((row) => !liveIds.has(row.id))
+        .map((row) => ({ ...row, isMissingLive: true }));
+      groupData.rows = [...liveRows, ...missingRows];
+    }
   });
 
   standingsSource = {
@@ -449,7 +462,9 @@ function renderGroup(groupData) {
       const gd = gf - ga;
       const status = index < 2 ? "auto" : index === 2 ? "third" : "";
       const values = standingsSource.isLive
-        ? [played, won, drawn, lost, `${gd > 0 ? "+" : ""}${gd}`, pts]
+        ? row.isMissingLive
+          ? ["-", "-", "-", "-", "-", "-"]
+          : [played, won, drawn, lost, `${gd > 0 ? "+" : ""}${gd}`, pts]
         : ["-", "-", "-", "-", "-", "-"];
       return `
         <tr class="${status}">
