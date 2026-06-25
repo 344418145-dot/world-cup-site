@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-06-25T17:34:31.412Z",
+  "updatedAt": "2026-06-25T23:01:27.614Z",
   "groups": [
     {
       "name": "A",
@@ -204,45 +204,45 @@
         {
           "id": "germany",
           "team": "Germany",
-          "played": 2,
+          "played": 3,
           "won": 2,
           "drawn": 0,
-          "lost": 0,
-          "gf": 9,
-          "ga": 2,
+          "lost": 1,
+          "gf": 10,
+          "ga": 4,
           "points": 6
         },
         {
           "id": "ivoryCoast",
           "team": "Ivory Coast",
-          "played": 2,
-          "won": 1,
+          "played": 3,
+          "won": 2,
           "drawn": 0,
           "lost": 1,
-          "gf": 2,
+          "gf": 4,
           "ga": 2,
-          "points": 3
+          "points": 6
         },
         {
           "id": "ecuador",
           "team": "Ecuador",
-          "played": 2,
-          "won": 0,
+          "played": 3,
+          "won": 1,
           "drawn": 1,
           "lost": 1,
-          "gf": 0,
-          "ga": 1,
-          "points": 1
+          "gf": 2,
+          "ga": 2,
+          "points": 4
         },
         {
           "id": "curacao",
           "team": "Curaçao",
-          "played": 2,
+          "played": 3,
           "won": 0,
           "drawn": 1,
-          "lost": 1,
+          "lost": 2,
           "gf": 1,
-          "ga": 7,
+          "ga": 9,
           "points": 1
         }
       ]
@@ -253,46 +253,46 @@
         {
           "id": "netherlands",
           "team": "Netherlands",
-          "played": 2,
+          "played": 3,
           "won": 1,
-          "drawn": 1,
+          "drawn": 2,
           "lost": 0,
           "gf": 7,
           "ga": 3,
-          "points": 4
+          "points": 5
         },
         {
           "id": "japan",
           "team": "Japan",
-          "played": 2,
+          "played": 3,
           "won": 1,
-          "drawn": 1,
+          "drawn": 2,
           "lost": 0,
           "gf": 6,
           "ga": 2,
-          "points": 4
+          "points": 5
         },
         {
           "id": "sweden",
           "team": "Sweden",
-          "played": 2,
+          "played": 3,
           "won": 1,
-          "drawn": 0,
+          "drawn": 1,
           "lost": 1,
           "gf": 6,
           "ga": 6,
-          "points": 3
+          "points": 4
         },
         {
           "id": "tunisia",
           "team": "Tunisia",
-          "played": 2,
+          "played": 3,
           "won": 0,
-          "drawn": 0,
+          "drawn": 1,
           "lost": 2,
           "gf": 1,
           "ga": 9,
-          "points": 0
+          "points": 1
         }
       ]
     },
