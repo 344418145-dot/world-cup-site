@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-06-26T10:38:47.467Z",
+  "updatedAt": "2026-06-26T17:18:39.629Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1008,6 +1008,62 @@
         "h2h": "暂无完整交锋数据",
         "form": "约旦 待更新 · 阿根廷 待更新",
         "ranking": "约旦 待更新 · 阿根廷 待更新"
+      }
+    },
+    {
+      "date": "2026-06-28",
+      "home": "southAfrica",
+      "away": "canada",
+      "groupName": "Group",
+      "time": "19:00 UTC",
+      "beijingTime": "北京时间 2026年6月29日 03:00",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "南非 待更新 · 加拿大 待更新",
+        "ranking": "南非 待更新 · 加拿大 待更新"
+      }
+    },
+    {
+      "date": "2026-06-29",
+      "home": "brazil",
+      "away": "japan",
+      "groupName": "Group",
+      "time": "17:00 UTC",
+      "beijingTime": "北京时间 2026年6月30日 01:00",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "巴西 待更新 · 日本 待更新",
+        "ranking": "巴西 待更新 · 日本 待更新"
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "home": "netherlands",
+      "away": "morocco",
+      "groupName": "Group",
+      "time": "01:00 UTC",
+      "beijingTime": "北京时间 2026年6月30日 09:00",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "荷兰 待更新 · 摩洛哥 待更新",
+        "ranking": "荷兰 待更新 · 摩洛哥 待更新"
+      }
+    },
+    {
+      "date": "2026-07-02",
+      "home": "usa",
+      "away": "bosnia",
+      "groupName": "Group",
+      "time": "00:00 UTC",
+      "beijingTime": "北京时间 2026年7月2日 08:00",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "美国 待更新 · 波黑 待更新",
+        "ranking": "美国 待更新 · 波黑 待更新"
       }
     }
   ]
