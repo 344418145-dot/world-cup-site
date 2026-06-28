@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-06-28T00:17:08.618Z",
+  "updatedAt": "2026-06-28T10:16:46.120Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1039,6 +1039,20 @@
       }
     },
     {
+      "date": "2026-06-29",
+      "home": "germany",
+      "away": "paraguay",
+      "groupName": "Group",
+      "time": "20:30 UTC",
+      "beijingTime": "北京时间 2026年6月30日 04:30",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "德国 待更新 · 巴拉圭 待更新",
+        "ranking": "德国 待更新 · 巴拉圭 待更新"
+      }
+    },
+    {
       "date": "2026-06-30",
       "home": "netherlands",
       "away": "morocco",
@@ -1053,6 +1067,76 @@
       }
     },
     {
+      "date": "2026-06-30",
+      "home": "ivoryCoast",
+      "away": "norway",
+      "groupName": "Group",
+      "time": "17:00 UTC",
+      "beijingTime": "北京时间 2026年7月1日 01:00",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "科特迪瓦 待更新 · 挪威 待更新",
+        "ranking": "科特迪瓦 待更新 · 挪威 待更新"
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "home": "france",
+      "away": "sweden",
+      "groupName": "Group",
+      "time": "21:00 UTC",
+      "beijingTime": "北京时间 2026年7月1日 05:00",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "法国 待更新 · 瑞典 待更新",
+        "ranking": "法国 待更新 · 瑞典 待更新"
+      }
+    },
+    {
+      "date": "2026-07-01",
+      "home": "mexico",
+      "away": "ecuador",
+      "groupName": "Group",
+      "time": "01:00 UTC",
+      "beijingTime": "北京时间 2026年7月1日 09:00",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "墨西哥 待更新 · 厄瓜多尔 待更新",
+        "ranking": "墨西哥 待更新 · 厄瓜多尔 待更新"
+      }
+    },
+    {
+      "date": "2026-07-01",
+      "home": "england",
+      "away": "drCongo",
+      "groupName": "Group",
+      "time": "16:00 UTC",
+      "beijingTime": "北京时间 2026年7月2日 00:00",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "英格兰 待更新 · 民主刚果 待更新",
+        "ranking": "英格兰 待更新 · 民主刚果 待更新"
+      }
+    },
+    {
+      "date": "2026-07-01",
+      "home": "belgium",
+      "away": "senegal",
+      "groupName": "Group",
+      "time": "20:00 UTC",
+      "beijingTime": "北京时间 2026年7月2日 04:00",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "比利时 待更新 · 塞内加尔 待更新",
+        "ranking": "比利时 待更新 · 塞内加尔 待更新"
+      }
+    },
+    {
       "date": "2026-07-02",
       "home": "usa",
       "away": "bosnia",
@@ -1064,6 +1148,90 @@
         "h2h": "暂无完整交锋数据",
         "form": "美国 待更新 · 波黑 待更新",
         "ranking": "美国 待更新 · 波黑 待更新"
+      }
+    },
+    {
+      "date": "2026-07-02",
+      "home": "spain",
+      "away": "austria",
+      "groupName": "Group",
+      "time": "19:00 UTC",
+      "beijingTime": "北京时间 2026年7月3日 03:00",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "西班牙 待更新 · 奥地利 待更新",
+        "ranking": "西班牙 待更新 · 奥地利 待更新"
+      }
+    },
+    {
+      "date": "2026-07-02",
+      "home": "portugal",
+      "away": "croatia",
+      "groupName": "Group",
+      "time": "23:00 UTC",
+      "beijingTime": "北京时间 2026年7月3日 07:00",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "葡萄牙 待更新 · 克罗地亚 待更新",
+        "ranking": "葡萄牙 待更新 · 克罗地亚 待更新"
+      }
+    },
+    {
+      "date": "2026-07-03",
+      "home": "switzerland",
+      "away": "algeria",
+      "groupName": "Group",
+      "time": "03:00 UTC",
+      "beijingTime": "北京时间 2026年7月3日 11:00",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "瑞士 待更新 · 阿尔及利亚 待更新",
+        "ranking": "瑞士 待更新 · 阿尔及利亚 待更新"
+      }
+    },
+    {
+      "date": "2026-07-03",
+      "home": "australia",
+      "away": "egypt",
+      "groupName": "Group",
+      "time": "18:00 UTC",
+      "beijingTime": "北京时间 2026年7月4日 02:00",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "澳大利亚 待更新 · 埃及 待更新",
+        "ranking": "澳大利亚 待更新 · 埃及 待更新"
+      }
+    },
+    {
+      "date": "2026-07-03",
+      "home": "argentina",
+      "away": "capeVerde",
+      "groupName": "Group",
+      "time": "22:00 UTC",
+      "beijingTime": "北京时间 2026年7月4日 06:00",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "阿根廷 待更新 · 佛得角 待更新",
+        "ranking": "阿根廷 待更新 · 佛得角 待更新"
+      }
+    },
+    {
+      "date": "2026-07-04",
+      "home": "colombia",
+      "away": "ghana",
+      "groupName": "Group",
+      "time": "01:30 UTC",
+      "beijingTime": "北京时间 2026年7月4日 09:30",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "哥伦比亚 待更新 · 加纳 待更新",
+        "ranking": "哥伦比亚 待更新 · 加纳 待更新"
       }
     }
   ]
