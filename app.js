@@ -166,6 +166,8 @@ let matchesSource = {
   message: "静态备用赛程"
 };
 
+let knockoutFeed = [];
+
 const rosterNames = {
   france: ["麦克·迈尼昂", "布里斯·桑巴", "阿尔方斯·阿雷奥拉", "儒勒·孔德", "威廉·萨利巴", "达约·乌帕梅卡诺", "易卜拉希马·科纳特", "特奥·埃尔南德斯", "费兰·门迪", "若纳唐·克洛斯", "爱德华多·卡马文加", "阿德里安·拉比奥", "恩戈洛·坎特", "沃伦·扎伊尔-埃梅里", "尤素夫·福法纳", "奥雷利安·楚阿梅尼", "安托万·格列兹曼", "基利安·姆巴佩", "奥斯曼·登贝莱", "马库斯·图拉姆", "兰德尔·科洛·穆阿尼", "奥利维耶·吉鲁", "布拉德利·巴尔科拉", "克里斯托弗·恩昆库", "金斯利·科曼", "穆阿尼"],
   argentina: ["埃米利亚诺·马丁内斯", "赫罗尼莫·鲁利", "弗朗哥·阿尔马尼", "纳韦尔·莫利纳", "克里斯蒂安·罗梅罗", "尼古拉斯·奥塔门迪", "利桑德罗·马丁内斯", "尼古拉斯·塔利亚菲科", "马科斯·阿库尼亚", "贡萨洛·蒙铁尔", "罗德里戈·德保罗", "恩佐·费尔南德斯", "亚历克西斯·麦卡利斯特", "莱安德罗·帕雷德斯", "埃塞基耶尔·帕拉西奥斯", "乔瓦尼·洛塞尔索", "利昂内尔·梅西", "安赫尔·迪马利亚", "劳塔罗·马丁内斯", "朱利安·阿尔瓦雷斯", "尼古拉斯·冈萨雷斯", "亚历杭德罗·加纳乔", "保罗·迪巴拉", "瓦伦丁·卡尔博尼", "卢卡斯·奥坎波斯", "蒂亚戈·阿尔马达"],
@@ -187,8 +189,8 @@ function group(name, ids, rows) {
   return { name, rows: ids.map((id, index) => ({ id, stats: rows[index] })) };
 }
 
-function match(date, home, away, groupName, time, beijingTime, venue, data) {
-  return { date, home, away, groupName, time, beijingTime, venue, data };
+function match(date, home, away, groupName, time, beijingTime, venue, data, meta = {}) {
+  return { date, home, away, groupName, time, beijingTime, venue, data, ...meta };
 }
 
 function flagUrl(teamId) {
@@ -338,6 +340,11 @@ function applyMatchesPayload(payload) {
     .map(normalizeMatchRecord)
     .filter(Boolean);
 
+  knockoutFeed = (payload?.knockout || [])
+    .map(normalizeKnockoutRecord)
+    .filter(Boolean);
+
+  if (knockoutFeed.length) renderKnockoutBracket();
   if (!rows.length) return;
 
   matchFeed = rows;
@@ -345,6 +352,27 @@ function applyMatchesPayload(payload) {
     updatedAt: payload.updatedAt || "",
     isLive: true,
     message: payload.source || "实时赛程"
+  };
+}
+
+function normalizeKnockoutRecord(sourceMatch) {
+  const matchNo = Number(sourceMatch.matchNo);
+  if (!matchNo) return null;
+  const home = teamIdFromAnyName(sourceMatch.home || sourceMatch.homeTeam || sourceMatch.homeTeamName);
+  const away = teamIdFromAnyName(sourceMatch.away || sourceMatch.awayTeam || sourceMatch.awayTeamName);
+  return {
+    matchNo,
+    stage: sourceMatch.stage || "",
+    date: sourceMatch.date || "",
+    home,
+    away,
+    homeName: sourceMatch.homeName || "",
+    awayName: sourceMatch.awayName || "",
+    time: sourceMatch.time || "待定",
+    beijingTime: sourceMatch.beijingTime || formatBeijingKickoff(sourceMatch.utcDate),
+    venue: sourceMatch.venue || "待定",
+    status: sourceMatch.status || "",
+    score: normalizeScore(sourceMatch.score)
   };
 }
 
@@ -361,8 +389,23 @@ function normalizeMatchRecord(sourceMatch) {
     sourceMatch.time || "待定",
     sourceMatch.beijingTime || formatBeijingKickoff(sourceMatch.utcDate),
     sourceMatch.venue || "待定",
-    { ...defaultMatchData(home, away), ...(sourceMatch.data || {}) }
+    { ...defaultMatchData(home, away), ...(sourceMatch.data || {}) },
+    {
+      status: sourceMatch.status || "",
+      score: normalizeScore(sourceMatch.score)
+    }
   );
+}
+
+function normalizeScore(score) {
+  if (!score) return null;
+  const rawHome = score.home ?? score.homeScore ?? score.fullTime?.home;
+  const rawAway = score.away ?? score.awayScore ?? score.fullTime?.away;
+  if (rawHome === null || rawHome === undefined || rawAway === null || rawAway === undefined) return null;
+  const home = Number(rawHome);
+  const away = Number(rawAway);
+  if (Number.isNaN(home) || Number.isNaN(away)) return null;
+  return { home, away };
 }
 
 function formatBeijingKickoff(value) {
@@ -520,6 +563,12 @@ function baseDateKey() {
   }).format(new Date());
 }
 
+function updateHeaderDate() {
+  const dateEl = document.querySelector("#todayDate");
+  if (!dateEl) return;
+  dateEl.textContent = baseDateKey();
+}
+
 function addDays(dateKey, days) {
   const [year, month, day] = dateKey.split("-").map(Number);
   const date = new Date(Date.UTC(year, month - 1, day + days));
@@ -571,7 +620,7 @@ function renderTabs(activeIndex = 0) {
             <span class="mini-flag"><img src="${flagUrl(away.id)}" alt=""></span>
             <span>${away.cn}</span>
           </div>
-          <div class="tab-meta">${m.groupName} · ${m.beijingTime}</div>
+          <div class="tab-meta">${m.groupName} · ${m.beijingTime}${renderScoreSuffix(m)}</div>
         </button>
       `;
     })
@@ -601,9 +650,8 @@ function updateMatchTitle(daily) {
   const title = document.querySelector(".matches-title h2");
   const eyebrow = document.querySelector(".matches-title .eyebrow");
   if (!title) return;
-  const label = activeDayMode === "today" ? "今日" : "明日";
-  title.textContent = daily.isFallback ? `${formatDateLabel(daily.key)} 对阵` : `${label}对阵与数据`;
-  if (eyebrow) eyebrow.textContent = activeDayMode === "today" ? "Today Matches" : "Tomorrow Matches";
+  title.textContent = "明日对阵与数据";
+  if (eyebrow) eyebrow.textContent = "Tomorrow Matches";
 }
 
 function formatDateLabel(dateText) {
@@ -636,7 +684,7 @@ function renderMatch(index) {
       <div>
         <div class="versus">
           ${renderVersusTeam(home)}
-          <div class="vs-mark">VS</div>
+          <div class="vs-mark ${isFinished(m) ? "has-score" : ""}">${renderMatchScore(m)}</div>
           ${renderVersusTeam(away)}
         </div>
         <div class="data-grid">
@@ -650,9 +698,68 @@ function renderMatch(index) {
         <div class="info-row"><span>北京时间</span><strong>${m.beijingTime}</strong></div>
         <div class="info-row"><span>当地开球</span><strong>${m.time}</strong></div>
         <div class="info-row"><span>地点</span><strong>${m.venue}</strong></div>
+        <div class="info-row"><span>状态</span><strong>${matchStatusLabel(m)}</strong></div>
       </aside>
     </div>
+    ${renderMatchOpinionBox(m)}
   `;
+}
+
+function isFinished(m) {
+  return Boolean(m?.score) || String(m?.status || "").toUpperCase() === "FINISHED";
+}
+
+function renderMatchScore(m) {
+  if (!m?.score && isPastMatch(m)) return "待更新";
+  if (!m?.score) return "VS";
+  return `${m.score.home} - ${m.score.away}`;
+}
+
+function renderScoreSuffix(m) {
+  if (isFinished(m) && m.score) return ` · ${m.score.home}-${m.score.away}`;
+  if (isPastMatch(m)) return " · 结果待更新";
+  return "";
+}
+
+function matchStatusLabel(m) {
+  const status = String(m?.status || "").toUpperCase();
+  if (m?.score || status === "FINISHED") return "已完赛";
+  if (isPastMatch(m)) return "结果待更新";
+  if (["IN_PLAY", "PAUSED", "LIVE"].includes(status)) return "进行中";
+  if (status === "POSTPONED") return "延期";
+  if (status === "SUSPENDED") return "中断";
+  return "未开赛";
+}
+
+function isPastMatch(m) {
+  return beijingDateKey(m) < baseDateKey();
+}
+
+function matchKey(m) {
+  return [beijingDateKey(m), m.home, m.away].join("-");
+}
+
+function renderMatchOpinionBox(m) {
+  if (activeDayMode !== "tomorrow") return "";
+  const key = `worldcup-opinion-${matchKey(m)}`;
+  const saved = localStorage.getItem(key) || "";
+  return `
+    <section class="match-opinion" aria-label="${teams[m.home].cn}对${teams[m.away].cn}观点输入">
+      <div>
+        <span>我的观点</span>
+        <strong>${teams[m.home].cn} vs ${teams[m.away].cn}</strong>
+      </div>
+      <textarea data-match-opinion="${key}" rows="3" placeholder="写下你对这场比赛的观点，内容只保存在当前浏览器。">${escapeTextArea(saved)}</textarea>
+      <p>已自动保存到本机浏览器，不会公开提交到网站后台。</p>
+    </section>
+  `;
+}
+
+function escapeTextArea(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
 }
 
 function renderVersusTeam(t) {
@@ -736,6 +843,7 @@ function renderPlayerCard(player) {
 
 function initTakeBox() {
   const display = document.querySelector("#takeDisplay");
+  if (!display) return;
   const saved = localStorage.getItem("worldcup-match-take") || "";
   renderTakeDisplay(saved);
 
@@ -743,6 +851,94 @@ function initTakeBox() {
     display.textContent = value.trim() || "暂无观点。";
     display.classList.toggle("is-empty", !value.trim());
   }
+}
+
+function renderKnockoutBracket() {
+  const bracket = document.querySelector("#knockoutBracket");
+  if (!bracket) return;
+  bracket.innerHTML = `
+    <div class="bracket-half bracket-half-left">
+      ${renderBracketColumn("32强", 73, 8)}
+      ${renderBracketColumn("16强", 89, 4)}
+      ${renderBracketColumn("8强", 97, 2)}
+      ${renderBracketColumn("半决赛", 101, 1)}
+    </div>
+    <div class="bracket-final">
+      <span>决赛</span>
+      <article class="bracket-match bracket-champion">
+        ${renderBracketMatchBody(104, "决赛", "左半区冠军", "右半区冠军")}
+      </article>
+      <div class="champion-cup" aria-label="冠军奖杯">
+        <span class="trophy-icon" aria-hidden="true">🏆</span>
+        <strong>待定</strong>
+      </div>
+    </div>
+    <div class="bracket-half bracket-half-right">
+      ${renderBracketColumn("半决赛", 102, 1)}
+      ${renderBracketColumn("8强", 99, 2)}
+      ${renderBracketColumn("16强", 93, 4)}
+      ${renderBracketColumn("32强", 81, 8)}
+    </div>
+  `;
+}
+
+function renderBracketColumn(title, startMatch, count) {
+  return `
+    <section class="bracket-round">
+      <h3>${title}</h3>
+      <div class="bracket-list" style="--slot-count:${count}">
+        ${Array.from({ length: count }, (_, index) => renderBracketMatch(startMatch + index, title)).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function renderBracketMatch(matchNo, roundName) {
+  const isRoundOf32 = roundName === "32强";
+  return `
+    <article class="bracket-match">
+      ${renderBracketMatchBody(
+        matchNo,
+        roundName,
+        isRoundOf32 ? "待定球队" : "上一轮胜者",
+        isRoundOf32 ? "待定球队" : "上一轮胜者"
+      )}
+    </article>
+  `;
+}
+
+function renderBracketMatchBody(matchNo, roundName, fallbackHome, fallbackAway) {
+  const matchItem = knockoutFeed.find((item) => item.matchNo === matchNo);
+  const homeLabel = bracketTeamLabel(matchItem?.home, matchItem?.homeName, fallbackHome);
+  const awayLabel = bracketTeamLabel(matchItem?.away, matchItem?.awayName, fallbackAway);
+  const score = matchItem?.score ? `<b>${matchItem.score.home}-${matchItem.score.away}</b>` : "";
+  return `
+    <small>Match ${matchNo} · ${bracketTimeLabel(matchNo, matchItem)}</small>
+    <strong>${homeLabel}</strong>
+    <strong>${awayLabel}</strong>
+    ${score}
+  `;
+}
+
+function bracketTeamLabel(teamId, rawName, fallback) {
+  if (teamId && teams[teamId]) return teams[teamId].cn;
+  return rawName || fallback;
+}
+
+function bracketTimeLabel(matchNo, matchItem) {
+  if (matchItem?.beijingTime && matchItem.beijingTime !== "北京时间待定") return matchItem.beijingTime.replace("北京时间 ", "");
+  return fallbackKnockoutTime(matchNo);
+}
+
+function fallbackKnockoutTime(matchNo) {
+  const r32Dates = ["6月29日", "6月30日", "7月1日", "7月2日"];
+  if (matchNo >= 73 && matchNo <= 88) return `北京时间 ${r32Dates[Math.floor((matchNo - 73) / 4)]} 待定`;
+  if (matchNo >= 89 && matchNo <= 96) return `北京时间 7月${4 + Math.floor((matchNo - 89) / 2)}日 待定`;
+  if (matchNo >= 97 && matchNo <= 100) return `北京时间 7月${10 + Math.floor((matchNo - 97) / 2)}日 待定`;
+  if (matchNo === 101) return "北京时间 7月15日 待定";
+  if (matchNo === 102) return "北京时间 7月16日 待定";
+  if (matchNo === 104) return "北京时间 7月20日 待定";
+  return "北京时间待定";
 }
 
 function closeTeam() {
@@ -776,6 +972,12 @@ document.addEventListener("click", (event) => {
   }
 });
 
+document.addEventListener("input", (event) => {
+  const input = event.target.closest("[data-match-opinion]");
+  if (!input) return;
+  localStorage.setItem(input.dataset.matchOpinion, input.value);
+});
+
 document.querySelector("#closeTeam").addEventListener("click", closeTeam);
 document.querySelector("#teamOverlay").addEventListener("click", (event) => {
   if (event.target.id === "teamOverlay") closeTeam();
@@ -788,7 +990,9 @@ window.addEventListener("hashchange", () => {
   if (teams[teamId]) openTeam(teamId);
 });
 
+updateHeaderDate();
 initTakeBox();
+renderKnockoutBracket();
 loadLiveMatches().finally(renderTabs);
 loadLiveStandings().finally(renderGroups);
 

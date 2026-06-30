@@ -11,7 +11,7 @@
     <header class="topbar">
       <div>
         <p class="eyebrow">FIFA World Cup 2026</p>
-        <h1>世界杯赛况中心 <span class="inline-date">2026-06-22</span></h1>
+        <h1>世界杯赛况中心 <span class="inline-date" id="todayDate">2026-06-22</span></h1>
       </div>
     </header>
 
@@ -28,6 +28,15 @@
         <div id="matchPanel" class="match-panel"></div>
       </section>
 
+      <section class="section-head bracket-title">
+        <div>
+          <p class="eyebrow">Round of 32 Route</p>
+          <h2>32强淘汰赛路线图</h2>
+          <p class="section-meta">席位确认后自动替换为真实球队</p>
+        </div>
+      </section>
+      <section id="knockoutBracket" class="bracket-board" aria-label="32强淘汰赛路线图"></section>
+
       <section class="section-head">
         <div>
           <p class="eyebrow">Groups & Standings</p>
@@ -40,16 +49,6 @@
         </div>
       </section>
       <section id="groups" class="groups-grid" aria-label="小组积分"></section>
-
-      <section class="my-take" aria-labelledby="takeTitle">
-        <div class="take-head">
-          <div>
-            <p class="eyebrow">Match Notes</p>
-            <h2 id="takeTitle">比赛观点</h2>
-          </div>
-        </div>
-        <div id="takeDisplay" class="take-display">暂无观点。</div>
-      </section>
     </main>
 
     <div id="teamOverlay" class="overlay" aria-hidden="true">
