@@ -158,7 +158,26 @@ const dailyMatches = [
   })
 ];
 
-let matchFeed = [...dailyMatches];
+const seededKnockoutFeed = [
+  knockoutSeed(73, "southAfrica", "canada", "北京时间 2026年6月29日 03:00", "15:00 ET", "纽约/新泽西", "FINISHED", { home: 0, away: 1 }),
+  knockoutSeed(74, "germany", "paraguay", "北京时间 2026年6月30日 04:30", "16:30 ET", "波士顿", "FINISHED", { home: 1, away: 1, penalties: { home: 3, away: 4 } }),
+  knockoutSeed(75, "netherlands", "morocco", "北京时间 2026年6月30日 09:00", "21:00 ET", "蒙特雷", "FINISHED", { home: 1, away: 1, penalties: { home: 2, away: 3 } }),
+  knockoutSeed(76, "brazil", "japan", "北京时间 2026年6月30日 01:00", "13:00 ET", "休斯敦", "FINISHED", { home: 2, away: 1 }),
+  knockoutSeed(77, "france", "sweden", "北京时间 2026年7月1日 05:00", "17:00 ET", "费城", "SCHEDULED"),
+  knockoutSeed(78, "ivoryCoast", "norway", "北京时间 2026年7月1日 01:00", "13:00 ET", "多伦多", "SCHEDULED"),
+  knockoutSeed(79, "mexico", "ecuador", "北京时间 2026年7月1日 09:00", "21:00 ET", "墨西哥城", "SCHEDULED"),
+  knockoutSeed(80, "england", "drCongo", "北京时间 2026年7月2日 00:00", "12:00 ET", "迈阿密", "SCHEDULED"),
+  knockoutSeed(81, "usa", "bosnia", "北京时间 2026年7月2日 08:00", "20:00 ET", "亚特兰大", "SCHEDULED"),
+  knockoutSeed(82, "belgium", "senegal", "北京时间 2026年7月2日 04:00", "16:00 ET", "西雅图", "SCHEDULED"),
+  knockoutSeed(83, "portugal", "croatia", "北京时间 2026年7月3日 07:00", "19:00 ET", "达拉斯", "SCHEDULED"),
+  knockoutSeed(84, "spain", "austria", "北京时间 2026年7月3日 03:00", "15:00 ET", "堪萨斯城", "SCHEDULED"),
+  knockoutSeed(85, "switzerland", "algeria", "北京时间 2026年7月3日 11:00", "23:00 ET", "旧金山湾区", "SCHEDULED"),
+  knockoutSeed(86, "argentina", "capeVerde", "北京时间 2026年7月4日 06:00", "18:00 ET", "洛杉矶", "SCHEDULED"),
+  knockoutSeed(87, "colombia", "ghana", "北京时间 2026年7月4日 09:30", "21:30 ET", "迈阿密", "SCHEDULED"),
+  knockoutSeed(88, "australia", "egypt", "北京时间 2026年7月4日 02:00", "14:00 ET", "温哥华", "SCHEDULED")
+];
+
+let matchFeed = fallbackMatchFeed();
 
 let matchesSource = {
   updatedAt: "",
@@ -166,7 +185,7 @@ let matchesSource = {
   message: "静态备用赛程"
 };
 
-let knockoutFeed = [];
+let knockoutFeed = [...seededKnockoutFeed];
 
 const roundOf32Slots = {
   73: ["A组第二", "B组第二"],
@@ -210,6 +229,44 @@ function group(name, ids, rows) {
 
 function match(date, home, away, groupName, time, beijingTime, venue, data, meta = {}) {
   return { date, home, away, groupName, time, beijingTime, venue, data, ...meta };
+}
+
+function knockoutSeed(matchNo, home, away, beijingTime, time, venue, status, score = null) {
+  return {
+    matchNo,
+    stage: "LAST_32",
+    date: beijingDateFromLabel(beijingTime),
+    home,
+    away,
+    time,
+    beijingTime,
+    venue,
+    status,
+    score
+  };
+}
+
+function fallbackMatchFeed() {
+  return [
+    ...dailyMatches,
+    ...seededKnockoutFeed.map((item) => match(
+      item.date,
+      item.home,
+      item.away,
+      "32强",
+      item.time,
+      item.beijingTime,
+      item.venue,
+      defaultMatchData(item.home, item.away),
+      { status: item.status, score: item.score }
+    ))
+  ];
+}
+
+function beijingDateFromLabel(value) {
+  const dateMatch = String(value || "").match(/2026年(\d+)月(\d+)日/);
+  if (!dateMatch) return "";
+  return `2026-${String(dateMatch[1]).padStart(2, "0")}-${String(dateMatch[2]).padStart(2, "0")}`;
 }
 
 function flagUrl(teamId) {
@@ -345,7 +402,8 @@ async function loadLiveMatches() {
     const payload = await response.json();
     applyMatchesPayload(payload);
   } catch (error) {
-    matchFeed = [...dailyMatches];
+    matchFeed = fallbackMatchFeed();
+    knockoutFeed = [...seededKnockoutFeed];
     matchesSource = {
       updatedAt: "",
       isLive: false,
@@ -359,19 +417,61 @@ function applyMatchesPayload(payload) {
     .map(normalizeMatchRecord)
     .filter(Boolean);
 
-  knockoutFeed = (payload?.knockout || [])
+  const liveKnockout = (payload?.knockout || [])
     .map(normalizeKnockoutRecord)
     .filter(Boolean);
+  knockoutFeed = mergeKnockoutFeed(liveKnockout);
 
   if (knockoutFeed.length) renderKnockoutBracket();
   if (!rows.length) return;
 
-  matchFeed = rows;
+  matchFeed = mergeMatchFeed(rows, seededKnockoutFeed.map((item) => match(
+    item.date,
+    item.home,
+    item.away,
+    "32强",
+    item.time,
+    item.beijingTime,
+    item.venue,
+    defaultMatchData(item.home, item.away),
+    { status: item.status, score: item.score }
+  )));
   matchesSource = {
     updatedAt: payload.updatedAt || "",
     isLive: true,
     message: payload.source || "实时赛程"
   };
+}
+
+function mergeMatchFeed(liveRows, fallbackRows) {
+  const rows = new Map(fallbackRows.map((item) => [matchMergeKey(item), item]));
+  liveRows.forEach((item) => {
+    rows.set(matchMergeKey(item), {
+      ...(rows.get(matchMergeKey(item)) || {}),
+      ...item,
+      score: item.score || rows.get(matchMergeKey(item))?.score || null
+    });
+  });
+  return [...rows.values()];
+}
+
+function matchMergeKey(item) {
+  return `${item.home}-${item.away}-${beijingDateKey(item)}`;
+}
+
+function mergeKnockoutFeed(liveRows) {
+  const rows = new Map(seededKnockoutFeed.map((item) => [item.matchNo, item]));
+  liveRows.forEach((item) => {
+    const seed = rows.get(item.matchNo) || {};
+    rows.set(item.matchNo, {
+      ...seed,
+      ...item,
+      score: item.score || seed.score || null,
+      status: item.status || seed.status || "",
+      venue: item.venue && item.venue !== "待定" ? item.venue : seed.venue || item.venue
+    });
+  });
+  return [...rows.values()].sort((a, b) => a.matchNo - b.matchNo);
 }
 
 function normalizeKnockoutRecord(sourceMatch) {
