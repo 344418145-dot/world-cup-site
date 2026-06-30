@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-06-29T20:59:29.650Z",
+  "updatedAt": "2026-06-30T07:05:13.365Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1232,6 +1232,20 @@
         "h2h": "暂无完整交锋数据",
         "form": "哥伦比亚 待更新 · 加纳 待更新",
         "ranking": "哥伦比亚 待更新 · 加纳 待更新"
+      }
+    },
+    {
+      "date": "2026-07-04",
+      "home": "canada",
+      "away": "morocco",
+      "groupName": "Group",
+      "time": "17:00 UTC",
+      "beijingTime": "北京时间 2026年7月5日 01:00",
+      "venue": "World",
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "加拿大 待更新 · 摩洛哥 待更新",
+        "ranking": "加拿大 待更新 · 摩洛哥 待更新"
       }
     }
   ]
