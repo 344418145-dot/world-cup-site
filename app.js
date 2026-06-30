@@ -168,6 +168,25 @@ let matchesSource = {
 
 let knockoutFeed = [];
 
+const roundOf32Slots = {
+  73: ["A组第二", "B组第二"],
+  74: ["E组第一", "最佳第三名 A/B/C/D/F"],
+  75: ["F组第一", "C组第二"],
+  76: ["C组第一", "F组第二"],
+  77: ["I组第一", "最佳第三名 C/D/F/G/H"],
+  78: ["E组第二", "I组第二"],
+  79: ["A组第一", "最佳第三名 C/E/F/H/I"],
+  80: ["L组第一", "最佳第三名 E/H/I/J/K"],
+  81: ["D组第一", "最佳第三名 B/E/F/I/J"],
+  82: ["G组第一", "最佳第三名 A/E/H/I/J"],
+  83: ["K组第二", "L组第二"],
+  84: ["H组第一", "J组第二"],
+  85: ["B组第一", "最佳第三名 E/F/G/I/J"],
+  86: ["J组第一", "H组第二"],
+  87: ["K组第一", "最佳第三名 D/E/I/J/L"],
+  88: ["D组第二", "G组第二"]
+};
+
 const rosterNames = {
   france: ["麦克·迈尼昂", "布里斯·桑巴", "阿尔方斯·阿雷奥拉", "儒勒·孔德", "威廉·萨利巴", "达约·乌帕梅卡诺", "易卜拉希马·科纳特", "特奥·埃尔南德斯", "费兰·门迪", "若纳唐·克洛斯", "爱德华多·卡马文加", "阿德里安·拉比奥", "恩戈洛·坎特", "沃伦·扎伊尔-埃梅里", "尤素夫·福法纳", "奥雷利安·楚阿梅尼", "安托万·格列兹曼", "基利安·姆巴佩", "奥斯曼·登贝莱", "马库斯·图拉姆", "兰德尔·科洛·穆阿尼", "奥利维耶·吉鲁", "布拉德利·巴尔科拉", "克里斯托弗·恩昆库", "金斯利·科曼", "穆阿尼"],
   argentina: ["埃米利亚诺·马丁内斯", "赫罗尼莫·鲁利", "弗朗哥·阿尔马尼", "纳韦尔·莫利纳", "克里斯蒂安·罗梅罗", "尼古拉斯·奥塔门迪", "利桑德罗·马丁内斯", "尼古拉斯·塔利亚菲科", "马科斯·阿库尼亚", "贡萨洛·蒙铁尔", "罗德里戈·德保罗", "恩佐·费尔南德斯", "亚历克西斯·麦卡利斯特", "莱安德罗·帕雷德斯", "埃塞基耶尔·帕拉西奥斯", "乔瓦尼·洛塞尔索", "利昂内尔·梅西", "安赫尔·迪马利亚", "劳塔罗·马丁内斯", "朱利安·阿尔瓦雷斯", "尼古拉斯·冈萨雷斯", "亚历杭德罗·加纳乔", "保罗·迪巴拉", "瓦伦丁·卡尔博尼", "卢卡斯·奥坎波斯", "蒂亚戈·阿尔马达"],
@@ -743,23 +762,16 @@ function renderMatchOpinionBox(m) {
   if (activeDayMode !== "tomorrow") return "";
   const key = `worldcup-opinion-${matchKey(m)}`;
   const saved = localStorage.getItem(key) || "";
+  const content = saved.trim();
   return `
-    <section class="match-opinion" aria-label="${teams[m.home].cn}对${teams[m.away].cn}观点输入">
+    <section class="match-opinion" aria-label="${teams[m.home].cn}对${teams[m.away].cn}比赛观点">
       <div>
-        <span>我的观点</span>
+        <span>比赛观点</span>
         <strong>${teams[m.home].cn} vs ${teams[m.away].cn}</strong>
       </div>
-      <textarea data-match-opinion="${key}" rows="3" placeholder="写下你对这场比赛的观点，内容只保存在当前浏览器。">${escapeTextArea(saved)}</textarea>
-      <p>已自动保存到本机浏览器，不会公开提交到网站后台。</p>
+      <p class="opinion-display ${content ? "" : "is-empty"}">${content ? escapeHtml(content) : "暂无观点。"}</p>
     </section>
   `;
-}
-
-function escapeTextArea(value) {
-  return String(value)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;");
 }
 
 function renderVersusTeam(t) {
@@ -856,68 +868,202 @@ function initTakeBox() {
 function renderKnockoutBracket() {
   const bracket = document.querySelector("#knockoutBracket");
   if (!bracket) return;
-  bracket.innerHTML = `
-    <div class="bracket-half bracket-half-left">
-      ${renderBracketColumn("32强", 73, 8)}
-      ${renderBracketColumn("16强", 89, 4)}
-      ${renderBracketColumn("8强", 97, 2)}
-      ${renderBracketColumn("半决赛", 101, 1)}
-    </div>
-    <div class="bracket-final">
-      <span>决赛</span>
-      <article class="bracket-match bracket-champion">
-        ${renderBracketMatchBody(104, "决赛", "左半区冠军", "右半区冠军")}
-      </article>
-      <div class="champion-cup" aria-label="冠军奖杯">
-        <span class="trophy-icon" aria-hidden="true">🏆</span>
-        <strong>待定</strong>
-      </div>
-    </div>
-    <div class="bracket-half bracket-half-right">
-      ${renderBracketColumn("半决赛", 102, 1)}
-      ${renderBracketColumn("8强", 99, 2)}
-      ${renderBracketColumn("16强", 93, 4)}
-      ${renderBracketColumn("32强", 81, 8)}
-    </div>
-  `;
+  bracket.innerHTML = renderBracketSvg();
 }
 
-function renderBracketColumn(title, startMatch, count) {
+function renderBracketSvg() {
+  const card = { width: 160, height: 64 };
+  const positions = bracketPositions(card);
+  const connectors = [
+    ...pairConnectors([73, 74, 75, 76, 77, 78, 79, 80], [89, 90, 91, 92], positions, card, "left"),
+    ...pairConnectors([89, 90, 91, 92], [97, 98], positions, card, "left"),
+    ...pairConnectors([97, 98], [101], positions, card, "left"),
+    ...pairConnectors([81, 82, 83, 84, 85, 86, 87, 88], [93, 94, 95, 96], positions, card, "right"),
+    ...pairConnectors([93, 94, 95, 96], [99, 100], positions, card, "right"),
+    ...pairConnectors([99, 100], [102], positions, card, "right"),
+    connectorPath(101, 104, positions, card, "left"),
+    connectorPath(102, 104, positions, card, "right")
+  ];
+  const matchOrder = [
+    73, 74, 75, 76, 77, 78, 79, 80, 89, 90, 91, 92, 97, 98, 101,
+    104,
+    102, 99, 100, 93, 94, 95, 96, 81, 82, 83, 84, 85, 86, 87, 88
+  ];
+
   return `
-    <section class="bracket-round">
-      <h3>${title}</h3>
-      <div class="bracket-list" style="--slot-count:${count}">
-        ${Array.from({ length: count }, (_, index) => renderBracketMatch(startMatch + index, title)).join("")}
-      </div>
-    </section>
+    <div class="bracket-scroll" role="img" aria-label="2026世界杯32强淘汰赛对阵路线图">
+      <svg class="bracket-svg" viewBox="0 0 1600 830" aria-hidden="true">
+        <text class="bracket-label" x="110" y="34">32强</text>
+        <text class="bracket-label" x="275" y="34">16强</text>
+        <text class="bracket-label" x="435" y="34">8强</text>
+        <text class="bracket-label" x="555" y="34">半决赛</text>
+        <text class="bracket-label" x="770" y="34">决赛</text>
+        <text class="bracket-label" x="955" y="34">半决赛</text>
+        <text class="bracket-label" x="1075" y="34">8强</text>
+        <text class="bracket-label" x="1245" y="34">16强</text>
+        <text class="bracket-label" x="1470" y="34">32强</text>
+        <g class="bracket-lines">${connectors.join("")}</g>
+        <g class="bracket-cards">${matchOrder.map((matchNo) => renderSvgBracketCard(matchNo, positions[matchNo], card)).join("")}</g>
+      </svg>
+    </div>
   `;
 }
 
-function renderBracketMatch(matchNo, roundName) {
-  const isRoundOf32 = roundName === "32强";
+function bracketPositions(card) {
+  const r32Y = Array.from({ length: 8 }, (_, index) => 58 + index * 90);
+  const midY = (a, b) => (a + card.height / 2 + b + card.height / 2) / 2 - card.height / 2;
+  const positions = {};
+  [73, 74, 75, 76, 77, 78, 79, 80].forEach((matchNo, index) => positions[matchNo] = { x: 30, y: r32Y[index] });
+  [81, 82, 83, 84, 85, 86, 87, 88].forEach((matchNo, index) => positions[matchNo] = { x: 1410, y: r32Y[index] });
+  [89, 90, 91, 92].forEach((matchNo, index) => positions[matchNo] = { x: 220, y: midY(r32Y[index * 2], r32Y[index * 2 + 1]) });
+  [93, 94, 95, 96].forEach((matchNo, index) => positions[matchNo] = { x: 1220, y: midY(r32Y[index * 2], r32Y[index * 2 + 1]) });
+  positions[97] = { x: 390, y: midY(positions[89].y, positions[90].y) };
+  positions[98] = { x: 390, y: midY(positions[91].y, positions[92].y) };
+  positions[99] = { x: 1050, y: midY(positions[93].y, positions[94].y) };
+  positions[100] = { x: 1050, y: midY(positions[95].y, positions[96].y) };
+  positions[101] = { x: 520, y: midY(positions[97].y, positions[98].y) };
+  positions[102] = { x: 920, y: midY(positions[99].y, positions[100].y) };
+  positions[104] = { x: 720, y: 360 };
+  return positions;
+}
+
+function pairConnectors(sourceMatches, targetMatches, positions, card, side) {
+  return targetMatches.flatMap((target, index) => {
+    const first = sourceMatches[index * 2];
+    const second = sourceMatches[index * 2 + 1];
+    return [
+      connectorPath(first, target, positions, card, side),
+      connectorPath(second, target, positions, card, side)
+    ];
+  });
+}
+
+function connectorPath(from, to, positions, card, side) {
+  const a = positions[from];
+  const b = positions[to];
+  if (!a || !b) return "";
+  const fromX = side === "left" ? a.x + card.width : a.x;
+  const toX = side === "left" ? b.x : b.x + card.width;
+  const fromY = a.y + card.height / 2;
+  const toY = b.y + card.height / 2;
+  const midX = side === "left" ? fromX + Math.max(16, (toX - fromX) / 2) : fromX - Math.max(16, (fromX - toX) / 2);
+  return `<path d="M ${fromX} ${fromY} H ${midX} V ${toY} H ${toX}" />`;
+}
+
+function renderSvgBracketCard(matchNo, position, card) {
+  const item = bracketMatchDisplay(matchNo);
+  const tone = matchNo === 104 ? " is-final" : "";
+  const score = item.score ? `<text class="bracket-score" x="${position.x + card.width - 12}" y="${position.y + 50}" text-anchor="end">${escapeSvg(item.score)}</text>` : "";
   return `
-    <article class="bracket-match">
-      ${renderBracketMatchBody(
-        matchNo,
-        roundName,
-        isRoundOf32 ? "待定球队" : "上一轮胜者",
-        isRoundOf32 ? "待定球队" : "上一轮胜者"
-      )}
-    </article>
+    <g class="bracket-card${tone}" transform="translate(${position.x} ${position.y})">
+      <rect width="${card.width}" height="${card.height}" rx="8" />
+      <text class="bracket-meta" x="12" y="18">M${matchNo} · ${escapeSvg(item.time)}</text>
+      ${renderSvgBracketTeam(item.home, 37)}
+      ${renderSvgBracketTeam(item.away, 55)}
+      ${score}
+    </g>
   `;
 }
 
-function renderBracketMatchBody(matchNo, roundName, fallbackHome, fallbackAway) {
+function bracketMatchDisplay(matchNo) {
   const matchItem = knockoutFeed.find((item) => item.matchNo === matchNo);
-  const homeLabel = bracketTeamLabel(matchItem?.home, matchItem?.homeName, fallbackHome);
-  const awayLabel = bracketTeamLabel(matchItem?.away, matchItem?.awayName, fallbackAway);
-  const score = matchItem?.score ? `<b>${matchItem.score.home}-${matchItem.score.away}</b>` : "";
+  const fallback = bracketFallbackTeams(matchNo);
+  const home = bracketTeamEntry(matchItem?.home, matchItem?.homeName, fallback[0]);
+  const away = bracketTeamEntry(matchItem?.away, matchItem?.awayName, fallback[1]);
+  return {
+    home,
+    away,
+    time: bracketTimeLabel(matchNo, matchItem).replace("北京时间 ", ""),
+    score: matchItem?.score ? `${matchItem.score.home}-${matchItem.score.away}` : ""
+  };
+}
+
+function bracketFallbackTeams(matchNo) {
+  if (roundOf32Slots[matchNo]) return roundOf32Slots[matchNo];
+  const previous = {
+    89: [73, 74], 90: [75, 76], 91: [77, 78], 92: [79, 80],
+    93: [81, 82], 94: [83, 84], 95: [85, 86], 96: [87, 88],
+    97: [89, 90], 98: [91, 92], 99: [93, 94], 100: [95, 96],
+    101: [97, 98], 102: [99, 100], 104: [101, 102]
+  };
+  const pair = previous[matchNo] || [];
+  return pair.length ? [`胜者 M${pair[0]}`, `胜者 M${pair[1]}`] : ["待定", "待定"];
+}
+
+function bracketTeamEntry(teamId, rawName, fallback) {
+  const resolvedId = teamId || resolveBracketSlot(fallback);
+  return {
+    id: resolvedId,
+    name: bracketTeamLabel(resolvedId, rawName, fallback)
+  };
+}
+
+function renderSvgBracketTeam(entry, y) {
+  const hasFlag = entry.id && teams[entry.id];
+  const textX = hasFlag ? 38 : 12;
+  const flag = hasFlag
+    ? `<image href="${flagUrl(entry.id)}" x="12" y="${y - 12}" width="20" height="14" preserveAspectRatio="xMidYMid slice" />`
+    : "";
   return `
-    <small>Match ${matchNo} · ${bracketTimeLabel(matchNo, matchItem)}</small>
-    <strong>${homeLabel}</strong>
-    <strong>${awayLabel}</strong>
-    ${score}
+    <g class="bracket-team-row">
+      ${flag}
+      <text class="bracket-team" x="${textX}" y="${y}">${escapeSvg(truncateBracketText(entry.name))}</text>
+    </g>
   `;
+}
+
+function resolveBracketSlot(slot) {
+  const text = String(slot || "");
+  const rankMatch = text.match(/^([A-L])组(第一|第二|第三)$/);
+  if (rankMatch) return groupRankTeamId(rankMatch[1], rankMatch[2]);
+
+  const thirdMatch = text.match(/^最佳第三名\s+([A-L/]+)$/);
+  if (thirdMatch) return bestThirdTeamId(thirdMatch[1].split("/"));
+
+  return "";
+}
+
+function groupRankTeamId(groupName, rankText) {
+  const rankIndex = { 第一: 0, 第二: 1, 第三: 2 }[rankText];
+  const groupData = groups.find((item) => item.name === groupName);
+  return groupData?.rows?.[rankIndex]?.id || "";
+}
+
+function bestThirdTeamId(candidateGroups) {
+  const candidates = candidateGroups
+    .map((groupName) => {
+      const groupData = groups.find((item) => item.name === groupName);
+      const row = groupData?.rows?.[2];
+      if (!row) return null;
+      const [played, won, drawn, lost, gf, ga, points] = row.stats;
+      return {
+        id: row.id,
+        played,
+        won,
+        drawn,
+        lost,
+        gf,
+        ga,
+        points,
+        gd: gf - ga
+      };
+    })
+    .filter(Boolean)
+    .sort((a, b) => b.points - a.points || b.gd - a.gd || b.gf - a.gf || a.lost - b.lost);
+  return candidates[0]?.id || "";
+}
+
+function truncateBracketText(value) {
+  const text = String(value || "");
+  return text.length > 13 ? `${text.slice(0, 12)}…` : text;
+}
+
+function escapeSvg(value) {
+  return String(value || "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;");
 }
 
 function bracketTeamLabel(teamId, rawName, fallback) {
@@ -931,14 +1077,40 @@ function bracketTimeLabel(matchNo, matchItem) {
 }
 
 function fallbackKnockoutTime(matchNo) {
-  const r32Dates = ["6月29日", "6月30日", "7月1日", "7月2日"];
-  if (matchNo >= 73 && matchNo <= 88) return `北京时间 ${r32Dates[Math.floor((matchNo - 73) / 4)]} 待定`;
-  if (matchNo >= 89 && matchNo <= 96) return `北京时间 7月${4 + Math.floor((matchNo - 89) / 2)}日 待定`;
-  if (matchNo >= 97 && matchNo <= 100) return `北京时间 7月${10 + Math.floor((matchNo - 97) / 2)}日 待定`;
-  if (matchNo === 101) return "北京时间 7月15日 待定";
-  if (matchNo === 102) return "北京时间 7月16日 待定";
-  if (matchNo === 104) return "北京时间 7月20日 待定";
-  return "北京时间待定";
+  const times = {
+    73: "北京时间 6月30日 04:30",
+    74: "北京时间 7月1日 05:00",
+    75: "北京时间 6月29日 03:00",
+    76: "北京时间 6月30日 09:00",
+    77: "北京时间 7月3日 07:00",
+    78: "北京时间 7月3日 03:00",
+    79: "北京时间 7月2日 08:00",
+    80: "北京时间 7月2日 04:00",
+    81: "北京时间 6月30日 01:00",
+    82: "北京时间 7月1日 01:00",
+    83: "北京时间 7月1日 09:00",
+    84: "北京时间 7月2日 00:00",
+    85: "北京时间 7月4日 06:00",
+    86: "北京时间 7月4日 02:00",
+    87: "北京时间 7月3日 11:00",
+    88: "北京时间 7月4日 09:30",
+    89: "北京时间 7月5日 03:00",
+    90: "北京时间 7月5日 07:00",
+    91: "北京时间 7月6日 03:00",
+    92: "北京时间 7月6日 07:00",
+    93: "北京时间 7月5日 23:00",
+    94: "北京时间 7月6日 11:00",
+    95: "北京时间 7月7日 03:00",
+    96: "北京时间 7月7日 07:00",
+    97: "北京时间 7月10日 03:00",
+    98: "北京时间 7月10日 07:00",
+    99: "北京时间 7月11日 03:00",
+    100: "北京时间 7月11日 07:00",
+    101: "北京时间 7月15日 08:00",
+    102: "北京时间 7月16日 08:00",
+    104: "北京时间 7月20日 03:00"
+  };
+  return times[matchNo] || "北京时间 7月20日 03:00";
 }
 
 function closeTeam() {
@@ -972,12 +1144,6 @@ document.addEventListener("click", (event) => {
   }
 });
 
-document.addEventListener("input", (event) => {
-  const input = event.target.closest("[data-match-opinion]");
-  if (!input) return;
-  localStorage.setItem(input.dataset.matchOpinion, input.value);
-});
-
 document.querySelector("#closeTeam").addEventListener("click", closeTeam);
 document.querySelector("#teamOverlay").addEventListener("click", (event) => {
   if (event.target.id === "teamOverlay") closeTeam();
@@ -994,7 +1160,10 @@ updateHeaderDate();
 initTakeBox();
 renderKnockoutBracket();
 loadLiveMatches().finally(renderTabs);
-loadLiveStandings().finally(renderGroups);
+loadLiveStandings().finally(() => {
+  renderGroups();
+  renderKnockoutBracket();
+});
 
 const initialTeam = location.hash.replace("#team-", "");
 if (teams[initialTeam]) openTeam(initialTeam);

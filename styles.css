@@ -316,140 +316,66 @@ tr.third .pos {
 }
 
 .bracket-board {
-  display: grid;
-  grid-template-columns: minmax(38rem, 1fr) minmax(10rem, 0.26fr) minmax(38rem, 1fr);
-  gap: 1rem;
-  align-items: center;
-  padding: 1rem;
+  padding: 0;
   overflow-x: auto;
 }
 
-.bracket-half {
-  display: grid;
-  grid-template-columns: 1.35fr 1fr 0.82fr 0.7fr;
-  gap: 0.75rem;
-  align-items: center;
-  min-width: 38rem;
+.bracket-scroll {
+  min-width: 70rem;
+  padding: 1rem;
 }
 
-.bracket-half-right {
-  grid-template-columns: 0.7fr 0.82fr 1fr 1.35fr;
-}
-
-.bracket-round {
-  min-width: 0;
-}
-
-.bracket-round h3 {
-  margin: 0 0 0.55rem;
-  color: #0c614f;
-  font-size: 0.82rem;
-}
-
-.bracket-list {
-  display: grid;
-  gap: clamp(0.35rem, calc((var(--slot-count) - 1) * 0.22rem), 1rem);
-}
-
-.bracket-match {
-  position: relative;
-  display: grid;
-  gap: 0.26rem;
-  min-height: 4.35rem;
-  padding: 0.58rem 0.65rem;
-  background: #f7fafb;
-  border: 1px solid var(--line);
-  border-radius: 0.42rem;
-}
-
-.bracket-half-left .bracket-match::after,
-.bracket-half-right .bracket-match::before {
-  position: absolute;
-  top: 50%;
-  width: 0.75rem;
-  height: 1px;
-  background: #b8c7cf;
-  content: "";
-}
-
-.bracket-half-left .bracket-match::after {
-  right: -0.76rem;
-}
-
-.bracket-half-right .bracket-match::before {
-  left: -0.76rem;
-}
-
-.bracket-match small {
-  color: var(--muted);
-  font-size: 0.68rem;
-  font-weight: 900;
-  line-height: 1.25;
-}
-
-.bracket-match strong {
-  overflow: hidden;
-  font-size: 0.82rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.bracket-match b {
-  justify-self: start;
-  padding: 0.08rem 0.35rem;
-  color: #fff;
-  font-size: 0.78rem;
-  line-height: 1.2;
-  background: var(--green);
-  border-radius: 999px;
-}
-
-.bracket-final {
-  display: grid;
-  gap: 0.75rem;
-  justify-items: center;
-  min-width: 10rem;
-}
-
-.bracket-final > span,
-.champion-cup span {
-  color: var(--green);
-  font-size: 0.78rem;
-  font-weight: 900;
-}
-
-.bracket-champion {
+.bracket-svg {
+  display: block;
   width: 100%;
-  background: #11252d;
-  border-color: #11252d;
+  min-width: 70rem;
+  height: auto;
 }
 
-.bracket-champion small,
-.bracket-champion strong {
-  color: #fff;
+.bracket-lines path {
+  fill: none;
+  stroke: #aebdc5;
+  stroke-width: 1.4;
+  vector-effect: non-scaling-stroke;
 }
 
-.champion-cup {
-  display: grid;
-  gap: 0.18rem;
-  place-items: center;
-  width: 7.6rem;
-  height: 7.6rem;
-  color: #17202a;
-  background: radial-gradient(circle at 50% 35%, #fff8d8 0 18%, #f0c766 19% 45%, #c99326 46% 100%);
-  border: 4px solid #fff4c5;
-  border-radius: 50%;
-  box-shadow: 0 14px 30px rgba(23, 32, 42, 0.16);
+.bracket-label {
+  fill: #0c614f;
+  font-size: 14px;
+  font-weight: 900;
 }
 
-.champion-cup strong {
-  font-size: 1rem;
+.bracket-card rect {
+  fill: #f8fbfb;
+  stroke: #cfdce2;
+  stroke-width: 1.2;
 }
 
-.trophy-icon {
-  font-size: 2.45rem;
-  line-height: 1;
-  filter: drop-shadow(0 3px 2px rgba(122, 82, 0, 0.26));
+.bracket-card.is-final rect {
+  fill: #11252d;
+  stroke: #11252d;
+}
+
+.bracket-card.is-final text {
+  fill: #fff;
+}
+
+.bracket-meta {
+  fill: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.bracket-team {
+  fill: var(--ink);
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.bracket-score {
+  fill: var(--green);
+  font-size: 14px;
+  font-weight: 900;
 }
 
 .match-opinion {
@@ -479,28 +405,20 @@ tr.third .pos {
   font-size: 0.9rem;
 }
 
-.match-opinion textarea {
-  width: 100%;
-  resize: vertical;
-  min-height: 5.2rem;
-  padding: 0.78rem;
+.opinion-display {
+  min-height: 3.25rem;
+  margin: 0;
+  padding: 0.75rem;
   color: var(--ink);
-  line-height: 1.55;
+  line-height: 1.6;
+  white-space: pre-wrap;
   background: #fff;
   border: 1px solid #d9e2e7;
   border-radius: 0.38rem;
-  outline: none;
 }
 
-.match-opinion textarea:focus {
-  border-color: #77c8b5;
-  box-shadow: 0 0 0 3px rgba(9, 139, 105, 0.12);
-}
-
-.match-opinion p {
-  margin: 0;
+.opinion-display.is-empty {
   color: var(--muted);
-  font-size: 0.74rem;
 }
 
 .my-take {
@@ -684,6 +602,80 @@ tr.third .pos {
   justify-content: space-between;
   gap: 1rem;
   margin-top: 0.85rem;
+}
+
+.admin-match-opinions {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.admin-section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.admin-section-head h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.admin-section-head span {
+  color: var(--muted);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.match-opinion-editors {
+  display: grid;
+  gap: 1rem;
+}
+
+.admin-match-group {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.admin-match-group h3 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin: 0;
+  font-size: 1rem;
+}
+
+.admin-match-group h3 span {
+  color: var(--green);
+  font-size: 0.86rem;
+}
+
+.admin-match-editor {
+  display: grid;
+  gap: 0.55rem;
+  padding: 0.75rem;
+  background: #f7fafb;
+  border: 1px solid var(--line);
+  border-radius: 0.45rem;
+}
+
+.admin-match-editor div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.admin-match-editor strong {
+  font-size: 0.95rem;
+}
+
+.admin-match-editor span,
+.admin-empty {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 800;
 }
 
 .take-status {
@@ -1304,46 +1296,19 @@ tr.third .pos {
   }
 
   .bracket-board {
-    display: grid;
-    grid-template-columns: minmax(34rem, 1fr) minmax(8.8rem, 0.26fr) minmax(34rem, 1fr);
-    gap: 0.7rem;
     max-width: calc(100vw - 1.1rem);
-    padding: 0.62rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
   }
 
-  .bracket-half {
-    grid-template-columns: 1.35fr 1fr 0.82fr 0.7fr;
-    gap: 0.55rem;
-    min-width: 34rem;
-  }
-
-  .bracket-half-right {
-    grid-template-columns: 0.7fr 0.82fr 1fr 1.35fr;
-  }
-
-  .bracket-final {
-    min-width: 8.8rem;
+  .bracket-scroll {
+    min-width: 62rem;
+    padding: 0.7rem;
     scroll-snap-align: start;
   }
 
-  .bracket-match {
-    min-height: 3.8rem;
-    padding: 0.5rem;
-  }
-
-  .bracket-match strong {
-    font-size: 0.72rem;
-  }
-
-  .bracket-match small {
-    font-size: 0.62rem;
-  }
-
-  .champion-cup {
-    width: 6.2rem;
-    height: 6.2rem;
+  .bracket-svg {
+    min-width: 62rem;
   }
 
   .match-panel {
@@ -1490,7 +1455,7 @@ tr.third .pos {
     gap: 0.2rem;
   }
 
-  .match-opinion textarea {
+  .opinion-display {
     min-height: 4.4rem;
     padding: 0.65rem;
     font-size: 0.86rem;

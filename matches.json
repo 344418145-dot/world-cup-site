@@ -1,0 +1,202 @@
+{
+  "source": "seed",
+  "updatedAt": "2026-06-23T00:00:00+08:00",
+  "matches": [
+    {
+      "date": "2026-06-22",
+      "home": "argentina",
+      "away": "austria",
+      "groupName": "Group J",
+      "time": "10:00 PT",
+      "beijingTime": "北京时间 2026年6月23日 01:00",
+      "venue": "达拉斯",
+      "data": {
+        "h2h": "近 5 次：阿根廷 2 胜 1 平 2 负",
+        "form": "阿根廷 W-W-W-D-W · 奥地利 W-D-W-L-W",
+        "ranking": "阿根廷 #1 · 奥地利 #25"
+      }
+    },
+    {
+      "date": "2026-06-22",
+      "home": "france",
+      "away": "iraq",
+      "groupName": "Group I",
+      "time": "14:00 PT",
+      "beijingTime": "北京时间 2026年6月23日 05:00",
+      "venue": "费城",
+      "data": {
+        "h2h": "暂无正式比赛交锋记录",
+        "form": "法国 W-W-D-W-L · 伊拉克 W-D-L-W-W",
+        "ranking": "法国 #2 · 伊拉克 #58"
+      }
+    },
+    {
+      "date": "2026-06-22",
+      "home": "norway",
+      "away": "senegal",
+      "groupName": "Group I",
+      "time": "17:00 PT",
+      "beijingTime": "北京时间 2026年6月23日 08:00",
+      "venue": "纽约/新泽西",
+      "data": {
+        "h2h": "近 5 次：挪威 2 胜 2 平 1 负",
+        "form": "挪威 W-W-D-L-W · 塞内加尔 W-D-W-L-D",
+        "ranking": "挪威 #44 · 塞内加尔 #17"
+      }
+    },
+    {
+      "date": "2026-06-22",
+      "home": "jordan",
+      "away": "algeria",
+      "groupName": "Group J",
+      "time": "20:00 PT",
+      "beijingTime": "北京时间 2026年6月23日 11:00",
+      "venue": "旧金山湾区",
+      "data": {
+        "h2h": "近 3 次：约旦 0 胜 1 平 2 负",
+        "form": "约旦 D-W-L-W-D · 阿尔及利亚 W-W-D-L-W",
+        "ranking": "约旦 #68 · 阿尔及利亚 #43"
+      }
+    },
+    {
+      "date": "2026-06-23",
+      "home": "portugal",
+      "away": "uzbekistan",
+      "groupName": "Group K",
+      "time": "10:00 PT",
+      "beijingTime": "北京时间 2026年6月24日 01:00",
+      "venue": "待定",
+      "data": {
+        "h2h": "暂无正式比赛交锋记录",
+        "form": "葡萄牙 W-W-L-W-D · 乌兹别克斯坦 W-D-W-W-L",
+        "ranking": "葡萄牙 #6 · 乌兹别克斯坦 #64"
+      }
+    },
+    {
+      "date": "2026-06-23",
+      "home": "england",
+      "away": "ghana",
+      "groupName": "Group L",
+      "time": "13:00 PT",
+      "beijingTime": "北京时间 2026年6月24日 04:00",
+      "venue": "待定",
+      "data": {
+        "h2h": "近 3 次：英格兰 2 胜 1 平 0 负",
+        "form": "英格兰 W-D-W-L-W · 加纳 W-D-L-W-W",
+        "ranking": "英格兰 #4 · 加纳 #60"
+      }
+    },
+    {
+      "date": "2026-06-23",
+      "home": "panama",
+      "away": "croatia",
+      "groupName": "Group L",
+      "time": "16:00 PT",
+      "beijingTime": "北京时间 2026年6月24日 07:00",
+      "venue": "待定",
+      "data": {
+        "h2h": "暂无正式比赛交锋记录",
+        "form": "巴拿马 W-L-W-D-L · 克罗地亚 W-W-D-L-W",
+        "ranking": "巴拿马 #45 · 克罗地亚 #10"
+      }
+    },
+    {
+      "date": "2026-06-23",
+      "home": "colombia",
+      "away": "drCongo",
+      "groupName": "Group K",
+      "time": "19:00 PT",
+      "beijingTime": "北京时间 2026年6月24日 10:00",
+      "venue": "待定",
+      "data": {
+        "h2h": "暂无正式比赛交锋记录",
+        "form": "哥伦比亚 W-W-D-W-L · 民主刚果 W-L-D-W-D",
+        "ranking": "哥伦比亚 #12 · 民主刚果 #61"
+      }
+    },
+    {
+      "date": "2026-06-24",
+      "home": "switzerland",
+      "away": "canada",
+      "groupName": "Group B",
+      "time": "12:00 PT",
+      "beijingTime": "北京时间 2026年6月25日 03:00",
+      "venue": "温哥华",
+      "data": {
+        "h2h": "两队唯一交锋：加拿大 3-1 瑞士",
+        "form": "瑞士 D-D-W-L-W · 加拿大 W-W-W-D-L",
+        "ranking": "瑞士 待更新 · 加拿大 待更新"
+      }
+    },
+    {
+      "date": "2026-06-24",
+      "home": "bosnia",
+      "away": "qatar",
+      "groupName": "Group B",
+      "time": "12:00 PT",
+      "beijingTime": "北京时间 2026年6月25日 03:00",
+      "venue": "西雅图",
+      "data": {
+        "h2h": "近 2 次：卡塔尔 1 胜 1 平 0 负",
+        "form": "波黑 D-D-L-W-L · 卡塔尔 L-L-L-D-W",
+        "ranking": "波黑 待更新 · 卡塔尔 待更新"
+      }
+    },
+    {
+      "date": "2026-06-24",
+      "home": "scotland",
+      "away": "brazil",
+      "groupName": "Group C",
+      "time": "18:00 ET",
+      "beijingTime": "北京时间 2026年6月25日 06:00",
+      "venue": "迈阿密",
+      "data": {
+        "h2h": "巴西对苏格兰保持不败",
+        "form": "苏格兰 D-L-D-W-L · 巴西 W-W-D-W-L",
+        "ranking": "苏格兰 待更新 · 巴西 待更新"
+      }
+    },
+    {
+      "date": "2026-06-24",
+      "home": "morocco",
+      "away": "haiti",
+      "groupName": "Group C",
+      "time": "18:00 ET",
+      "beijingTime": "北京时间 2026年6月25日 06:00",
+      "venue": "亚特兰大",
+      "data": {
+        "h2h": "两队此前无正式交锋记录",
+        "form": "摩洛哥 D-W-W-D-W · 海地 L-L-D-W-L",
+        "ranking": "摩洛哥 待更新 · 海地 待更新"
+      }
+    },
+    {
+      "date": "2026-06-24",
+      "home": "czechia",
+      "away": "mexico",
+      "groupName": "Group A",
+      "time": "19:00 CT",
+      "beijingTime": "北京时间 2026年6月25日 09:00",
+      "venue": "墨西哥城",
+      "data": {
+        "h2h": "两队唯一交锋：捷克 2-1 墨西哥",
+        "form": "捷克 D-W-L-W-D · 墨西哥 W-W-D-L-W",
+        "ranking": "捷克 #40 · 墨西哥 #14"
+      }
+    },
+    {
+      "date": "2026-06-24",
+      "home": "southAfrica",
+      "away": "southKorea",
+      "groupName": "Group A",
+      "time": "19:00 CT",
+      "beijingTime": "北京时间 2026年6月25日 09:00",
+      "venue": "蒙特雷",
+      "data": {
+        "h2h": "两队此前无正式交锋记录",
+        "form": "南非 D-L-D-W-L · 韩国 W-L-W-D-W",
+        "ranking": "南非 #60 · 韩国 #25"
+      }
+    }
+  ]
+}
