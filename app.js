@@ -1008,7 +1008,7 @@ function bracketTeamEntry(teamId, rawName, fallback) {
   const resolvedId = teamId || resolveBracketSlot(fallback);
   return {
     id: resolvedId,
-    name: bracketTeamLabel(resolvedId, rawName, fallback)
+    name: bracketTeamLabel(resolvedId, rawName, resolvedId ? "" : fallback)
   };
 }
 
@@ -1034,6 +1034,26 @@ function resolveBracketSlot(slot) {
   const thirdMatch = text.match(/^最佳第三名\s+([A-L/]+)$/);
   if (thirdMatch) return bestThirdTeamId(thirdMatch[1].split("/"));
 
+  const winnerMatch = text.match(/^胜者\s*M(\d+)$/);
+  if (winnerMatch) return knockoutWinnerTeamId(Number(winnerMatch[1]));
+
+  return "";
+}
+
+function knockoutWinnerTeamId(matchNo) {
+  const matchItem = knockoutFeed.find((item) => item.matchNo === matchNo);
+  if (!matchItem?.score || !matchItem.home || !matchItem.away) return "";
+  const homeScore = Number(matchItem.score.home);
+  const awayScore = Number(matchItem.score.away);
+  if (homeScore > awayScore) return matchItem.home;
+  if (awayScore > homeScore) return matchItem.away;
+
+  const penaltyHome = Number(matchItem.score.penalties?.home);
+  const penaltyAway = Number(matchItem.score.penalties?.away);
+  if (Number.isFinite(penaltyHome) && Number.isFinite(penaltyAway)) {
+    if (penaltyHome > penaltyAway) return matchItem.home;
+    if (penaltyAway > penaltyHome) return matchItem.away;
+  }
   return "";
 }
 
