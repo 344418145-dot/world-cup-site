@@ -1,6 +1,6 @@
 {
-  "source": "seed",
-  "updatedAt": "2026-06-23T00:00:00+08:00",
+  "source": "seed + round-of-32 results",
+  "updatedAt": "2026-06-30T08:25:15.229Z",
   "matches": [
     {
       "date": "2026-06-22",
@@ -197,6 +197,528 @@
         "form": "南非 D-L-D-W-L · 韩国 W-L-W-D-W",
         "ranking": "南非 #60 · 韩国 #25"
       }
+    },
+    {
+      "date": "2026-06-29",
+      "home": "southAfrica",
+      "away": "canada",
+      "groupName": "32强",
+      "time": "15:00 ET",
+      "beijingTime": "北京时间 2026年6月29日 03:00",
+      "venue": "纽约/新泽西",
+      "status": "FINISHED",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "南非 待更新 · 加拿大 待更新",
+        "ranking": "南非 待更新 · 加拿大 待更新"
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "home": "brazil",
+      "away": "japan",
+      "groupName": "32强",
+      "time": "13:00 ET",
+      "beijingTime": "北京时间 2026年6月30日 01:00",
+      "venue": "休斯敦",
+      "status": "FINISHED",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "巴西 待更新 · 日本 待更新",
+        "ranking": "巴西 待更新 · 日本 待更新"
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "home": "germany",
+      "away": "paraguay",
+      "groupName": "32强",
+      "time": "16:30 ET",
+      "beijingTime": "北京时间 2026年6月30日 04:30",
+      "venue": "波士顿",
+      "status": "FINISHED",
+      "score": {
+        "home": 1,
+        "away": 1,
+        "penalties": {
+          "home": 3,
+          "away": 4
+        }
+      },
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "德国 待更新 · 巴拉圭 待更新",
+        "ranking": "德国 待更新 · 巴拉圭 待更新"
+      }
+    },
+    {
+      "date": "2026-06-30",
+      "home": "netherlands",
+      "away": "morocco",
+      "groupName": "32强",
+      "time": "21:00 ET",
+      "beijingTime": "北京时间 2026年6月30日 09:00",
+      "venue": "蒙特雷",
+      "status": "FINISHED",
+      "score": {
+        "home": 1,
+        "away": 1,
+        "penalties": {
+          "home": 2,
+          "away": 3
+        }
+      },
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "荷兰 待更新 · 摩洛哥 待更新",
+        "ranking": "荷兰 待更新 · 摩洛哥 待更新"
+      }
+    },
+    {
+      "date": "2026-07-01",
+      "home": "ivoryCoast",
+      "away": "norway",
+      "groupName": "32强",
+      "time": "13:00 ET",
+      "beijingTime": "北京时间 2026年7月1日 01:00",
+      "venue": "多伦多",
+      "status": "SCHEDULED",
+      "score": null,
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "科特迪瓦 待更新 · 挪威 待更新",
+        "ranking": "科特迪瓦 待更新 · 挪威 待更新"
+      }
+    },
+    {
+      "date": "2026-07-01",
+      "home": "france",
+      "away": "sweden",
+      "groupName": "32强",
+      "time": "17:00 ET",
+      "beijingTime": "北京时间 2026年7月1日 05:00",
+      "venue": "费城",
+      "status": "SCHEDULED",
+      "score": null,
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "法国 待更新 · 瑞典 待更新",
+        "ranking": "法国 待更新 · 瑞典 待更新"
+      }
+    },
+    {
+      "date": "2026-07-01",
+      "home": "mexico",
+      "away": "ecuador",
+      "groupName": "32强",
+      "time": "21:00 ET",
+      "beijingTime": "北京时间 2026年7月1日 09:00",
+      "venue": "墨西哥城",
+      "status": "SCHEDULED",
+      "score": null,
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "墨西哥 待更新 · 厄瓜多尔 待更新",
+        "ranking": "墨西哥 待更新 · 厄瓜多尔 待更新"
+      }
+    },
+    {
+      "date": "2026-07-02",
+      "home": "england",
+      "away": "drCongo",
+      "groupName": "32强",
+      "time": "12:00 ET",
+      "beijingTime": "北京时间 2026年7月2日 00:00",
+      "venue": "迈阿密",
+      "status": "SCHEDULED",
+      "score": null,
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "英格兰 待更新 · 民主刚果 待更新",
+        "ranking": "英格兰 待更新 · 民主刚果 待更新"
+      }
+    },
+    {
+      "date": "2026-07-02",
+      "home": "belgium",
+      "away": "senegal",
+      "groupName": "32强",
+      "time": "16:00 ET",
+      "beijingTime": "北京时间 2026年7月2日 04:00",
+      "venue": "西雅图",
+      "status": "SCHEDULED",
+      "score": null,
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "比利时 待更新 · 塞内加尔 待更新",
+        "ranking": "比利时 待更新 · 塞内加尔 待更新"
+      }
+    },
+    {
+      "date": "2026-07-02",
+      "home": "usa",
+      "away": "bosnia",
+      "groupName": "32强",
+      "time": "20:00 ET",
+      "beijingTime": "北京时间 2026年7月2日 08:00",
+      "venue": "亚特兰大",
+      "status": "SCHEDULED",
+      "score": null,
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "美国 待更新 · 波黑 待更新",
+        "ranking": "美国 待更新 · 波黑 待更新"
+      }
+    },
+    {
+      "date": "2026-07-03",
+      "home": "spain",
+      "away": "austria",
+      "groupName": "32强",
+      "time": "15:00 ET",
+      "beijingTime": "北京时间 2026年7月3日 03:00",
+      "venue": "堪萨斯城",
+      "status": "SCHEDULED",
+      "score": null,
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "西班牙 待更新 · 奥地利 待更新",
+        "ranking": "西班牙 待更新 · 奥地利 待更新"
+      }
+    },
+    {
+      "date": "2026-07-03",
+      "home": "portugal",
+      "away": "croatia",
+      "groupName": "32强",
+      "time": "19:00 ET",
+      "beijingTime": "北京时间 2026年7月3日 07:00",
+      "venue": "达拉斯",
+      "status": "SCHEDULED",
+      "score": null,
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "葡萄牙 待更新 · 克罗地亚 待更新",
+        "ranking": "葡萄牙 待更新 · 克罗地亚 待更新"
+      }
+    },
+    {
+      "date": "2026-07-03",
+      "home": "switzerland",
+      "away": "algeria",
+      "groupName": "32强",
+      "time": "23:00 ET",
+      "beijingTime": "北京时间 2026年7月3日 11:00",
+      "venue": "旧金山湾区",
+      "status": "SCHEDULED",
+      "score": null,
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "瑞士 待更新 · 阿尔及利亚 待更新",
+        "ranking": "瑞士 待更新 · 阿尔及利亚 待更新"
+      }
+    },
+    {
+      "date": "2026-07-04",
+      "home": "australia",
+      "away": "egypt",
+      "groupName": "32强",
+      "time": "14:00 ET",
+      "beijingTime": "北京时间 2026年7月4日 02:00",
+      "venue": "温哥华",
+      "status": "SCHEDULED",
+      "score": null,
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "澳大利亚 待更新 · 埃及 待更新",
+        "ranking": "澳大利亚 待更新 · 埃及 待更新"
+      }
+    },
+    {
+      "date": "2026-07-04",
+      "home": "argentina",
+      "away": "capeVerde",
+      "groupName": "32强",
+      "time": "18:00 ET",
+      "beijingTime": "北京时间 2026年7月4日 06:00",
+      "venue": "洛杉矶",
+      "status": "SCHEDULED",
+      "score": null,
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "阿根廷 待更新 · 佛得角 待更新",
+        "ranking": "阿根廷 待更新 · 佛得角 待更新"
+      }
+    },
+    {
+      "date": "2026-07-04",
+      "home": "colombia",
+      "away": "ghana",
+      "groupName": "32强",
+      "time": "21:30 ET",
+      "beijingTime": "北京时间 2026年7月4日 09:30",
+      "venue": "迈阿密",
+      "status": "SCHEDULED",
+      "score": null,
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "哥伦比亚 待更新 · 加纳 待更新",
+        "ranking": "哥伦比亚 待更新 · 加纳 待更新"
+      }
+    }
+  ],
+  "knockout": [
+    {
+      "matchNo": 73,
+      "stage": "LAST_32",
+      "date": "2026-06-29",
+      "home": "southAfrica",
+      "away": "canada",
+      "homeName": "南非",
+      "awayName": "加拿大",
+      "time": "15:00 ET",
+      "beijingTime": "北京时间 2026年6月29日 03:00",
+      "venue": "纽约/新泽西",
+      "status": "FINISHED",
+      "score": {
+        "home": 0,
+        "away": 1
+      }
+    },
+    {
+      "matchNo": 74,
+      "stage": "LAST_32",
+      "date": "2026-06-30",
+      "home": "germany",
+      "away": "paraguay",
+      "homeName": "德国",
+      "awayName": "巴拉圭",
+      "time": "16:30 ET",
+      "beijingTime": "北京时间 2026年6月30日 04:30",
+      "venue": "波士顿",
+      "status": "FINISHED",
+      "score": {
+        "home": 1,
+        "away": 1,
+        "penalties": {
+          "home": 3,
+          "away": 4
+        }
+      }
+    },
+    {
+      "matchNo": 75,
+      "stage": "LAST_32",
+      "date": "2026-06-30",
+      "home": "netherlands",
+      "away": "morocco",
+      "homeName": "荷兰",
+      "awayName": "摩洛哥",
+      "time": "21:00 ET",
+      "beijingTime": "北京时间 2026年6月30日 09:00",
+      "venue": "蒙特雷",
+      "status": "FINISHED",
+      "score": {
+        "home": 1,
+        "away": 1,
+        "penalties": {
+          "home": 2,
+          "away": 3
+        }
+      }
+    },
+    {
+      "matchNo": 76,
+      "stage": "LAST_32",
+      "date": "2026-06-30",
+      "home": "brazil",
+      "away": "japan",
+      "homeName": "巴西",
+      "awayName": "日本",
+      "time": "13:00 ET",
+      "beijingTime": "北京时间 2026年6月30日 01:00",
+      "venue": "休斯敦",
+      "status": "FINISHED",
+      "score": {
+        "home": 2,
+        "away": 1
+      }
+    },
+    {
+      "matchNo": 77,
+      "stage": "LAST_32",
+      "date": "2026-07-01",
+      "home": "france",
+      "away": "sweden",
+      "homeName": "法国",
+      "awayName": "瑞典",
+      "time": "17:00 ET",
+      "beijingTime": "北京时间 2026年7月1日 05:00",
+      "venue": "费城",
+      "status": "SCHEDULED",
+      "score": null
+    },
+    {
+      "matchNo": 78,
+      "stage": "LAST_32",
+      "date": "2026-07-01",
+      "home": "ivoryCoast",
+      "away": "norway",
+      "homeName": "科特迪瓦",
+      "awayName": "挪威",
+      "time": "13:00 ET",
+      "beijingTime": "北京时间 2026年7月1日 01:00",
+      "venue": "多伦多",
+      "status": "SCHEDULED",
+      "score": null
+    },
+    {
+      "matchNo": 79,
+      "stage": "LAST_32",
+      "date": "2026-07-01",
+      "home": "mexico",
+      "away": "ecuador",
+      "homeName": "墨西哥",
+      "awayName": "厄瓜多尔",
+      "time": "21:00 ET",
+      "beijingTime": "北京时间 2026年7月1日 09:00",
+      "venue": "墨西哥城",
+      "status": "SCHEDULED",
+      "score": null
+    },
+    {
+      "matchNo": 80,
+      "stage": "LAST_32",
+      "date": "2026-07-02",
+      "home": "england",
+      "away": "drCongo",
+      "homeName": "英格兰",
+      "awayName": "民主刚果",
+      "time": "12:00 ET",
+      "beijingTime": "北京时间 2026年7月2日 00:00",
+      "venue": "迈阿密",
+      "status": "SCHEDULED",
+      "score": null
+    },
+    {
+      "matchNo": 81,
+      "stage": "LAST_32",
+      "date": "2026-07-02",
+      "home": "usa",
+      "away": "bosnia",
+      "homeName": "美国",
+      "awayName": "波黑",
+      "time": "20:00 ET",
+      "beijingTime": "北京时间 2026年7月2日 08:00",
+      "venue": "亚特兰大",
+      "status": "SCHEDULED",
+      "score": null
+    },
+    {
+      "matchNo": 82,
+      "stage": "LAST_32",
+      "date": "2026-07-02",
+      "home": "belgium",
+      "away": "senegal",
+      "homeName": "比利时",
+      "awayName": "塞内加尔",
+      "time": "16:00 ET",
+      "beijingTime": "北京时间 2026年7月2日 04:00",
+      "venue": "西雅图",
+      "status": "SCHEDULED",
+      "score": null
+    },
+    {
+      "matchNo": 83,
+      "stage": "LAST_32",
+      "date": "2026-07-03",
+      "home": "portugal",
+      "away": "croatia",
+      "homeName": "葡萄牙",
+      "awayName": "克罗地亚",
+      "time": "19:00 ET",
+      "beijingTime": "北京时间 2026年7月3日 07:00",
+      "venue": "达拉斯",
+      "status": "SCHEDULED",
+      "score": null
+    },
+    {
+      "matchNo": 84,
+      "stage": "LAST_32",
+      "date": "2026-07-03",
+      "home": "spain",
+      "away": "austria",
+      "homeName": "西班牙",
+      "awayName": "奥地利",
+      "time": "15:00 ET",
+      "beijingTime": "北京时间 2026年7月3日 03:00",
+      "venue": "堪萨斯城",
+      "status": "SCHEDULED",
+      "score": null
+    },
+    {
+      "matchNo": 85,
+      "stage": "LAST_32",
+      "date": "2026-07-03",
+      "home": "switzerland",
+      "away": "algeria",
+      "homeName": "瑞士",
+      "awayName": "阿尔及利亚",
+      "time": "23:00 ET",
+      "beijingTime": "北京时间 2026年7月3日 11:00",
+      "venue": "旧金山湾区",
+      "status": "SCHEDULED",
+      "score": null
+    },
+    {
+      "matchNo": 86,
+      "stage": "LAST_32",
+      "date": "2026-07-04",
+      "home": "argentina",
+      "away": "capeVerde",
+      "homeName": "阿根廷",
+      "awayName": "佛得角",
+      "time": "18:00 ET",
+      "beijingTime": "北京时间 2026年7月4日 06:00",
+      "venue": "洛杉矶",
+      "status": "SCHEDULED",
+      "score": null
+    },
+    {
+      "matchNo": 87,
+      "stage": "LAST_32",
+      "date": "2026-07-04",
+      "home": "colombia",
+      "away": "ghana",
+      "homeName": "哥伦比亚",
+      "awayName": "加纳",
+      "time": "21:30 ET",
+      "beijingTime": "北京时间 2026年7月4日 09:30",
+      "venue": "迈阿密",
+      "status": "SCHEDULED",
+      "score": null
+    },
+    {
+      "matchNo": 88,
+      "stage": "LAST_32",
+      "date": "2026-07-04",
+      "home": "australia",
+      "away": "egypt",
+      "homeName": "澳大利亚",
+      "awayName": "埃及",
+      "time": "14:00 ET",
+      "beijingTime": "北京时间 2026年7月4日 02:00",
+      "venue": "温哥华",
+      "status": "SCHEDULED",
+      "score": null
     }
   ]
 }

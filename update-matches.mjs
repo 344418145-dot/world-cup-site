@@ -199,14 +199,13 @@ function normalizeMatch(item) {
   const home = getTeamId(item.homeTeam);
   const away = getTeamId(item.awayTeam);
   if (!home || !away) return null;
-  if (isKnockout(item)) return null;
 
   const utcDate = item.utcDate || item.date || "";
   return {
     date: utcDate ? utcDate.slice(0, 10) : "",
     home,
     away,
-    groupName: getGroupName(item),
+    groupName: getDisplayGroupName(item),
     time: utcDate ? `${utcDate.slice(11, 16)} UTC` : "待定",
     beijingTime: formatBeijingTime(utcDate),
     venue: getVenue(item),
@@ -224,15 +223,17 @@ function normalizeKnockoutMatches(rawMatches) {
       const stage = getStage(item);
       const count = (counters.get(stage) || 0) + 1;
       counters.set(stage, count);
-      const matchNo = getKnockoutMatchNo(stage, count);
+      const home = getTeamId(item.homeTeam) || "";
+      const away = getTeamId(item.awayTeam) || "";
+      const matchNo = getKnownRoundOf32MatchNo(home, away) || getKnockoutMatchNo(stage, count);
       if (!matchNo) return null;
       const utcDate = item.utcDate || item.date || "";
       return {
         matchNo,
         stage,
         date: utcDate ? utcDate.slice(0, 10) : "",
-        home: getTeamId(item.homeTeam) || "",
-        away: getTeamId(item.awayTeam) || "",
+        home,
+        away,
         homeName: getTeamName(item.homeTeam),
         awayName: getTeamName(item.awayTeam),
         time: utcDate ? `${utcDate.slice(11, 16)} UTC` : "待定",
@@ -271,6 +272,28 @@ function getKnockoutMatchNo(stage, index) {
   return start ? start + index - 1 : 0;
 }
 
+function getKnownRoundOf32MatchNo(home, away) {
+  const pairs = new Map([
+    ["southAfrica-canada", 73],
+    ["germany-paraguay", 74],
+    ["netherlands-morocco", 75],
+    ["brazil-japan", 76],
+    ["france-sweden", 77],
+    ["ivoryCoast-norway", 78],
+    ["mexico-ecuador", 79],
+    ["england-drCongo", 80],
+    ["usa-bosnia", 81],
+    ["belgium-senegal", 82],
+    ["portugal-croatia", 83],
+    ["spain-austria", 84],
+    ["switzerland-algeria", 85],
+    ["argentina-capeVerde", 86],
+    ["colombia-ghana", 87],
+    ["australia-egypt", 88]
+  ]);
+  return pairs.get(`${home}-${away}`) || pairs.get(`${away}-${home}`) || 0;
+}
+
 function getScore(item) {
   const fullTime = item?.score?.fullTime || {};
   if (fullTime.home === null || fullTime.home === undefined || fullTime.away === null || fullTime.away === undefined) {
@@ -279,6 +302,12 @@ function getScore(item) {
   const home = Number(fullTime.home);
   const away = Number(fullTime.away);
   if (Number.isNaN(home) || Number.isNaN(away)) return null;
+  const penalties = item?.score?.penalties || item?.score?.penaltyShootout || {};
+  const penaltyHome = penalties.home;
+  const penaltyAway = penalties.away;
+  if (penaltyHome !== null && penaltyHome !== undefined && penaltyAway !== null && penaltyAway !== undefined) {
+    return { home, away, penalties: { home: Number(penaltyHome), away: Number(penaltyAway) } };
+  }
   return { home, away };
 }
 
@@ -298,6 +327,22 @@ function getGroupName(item) {
   const raw = String(item.group || item.stage || "").trim();
   const letter = raw.match(/(?:GROUP[_\s-]*)?([A-L])$/i)?.[1];
   return letter ? `Group ${letter.toUpperCase()}` : "Group";
+}
+
+function getDisplayGroupName(item) {
+  if (!isKnockout(item)) return getGroupName(item);
+  const names = new Map([
+    ["LAST_32", "32强"],
+    ["ROUND_OF_32", "32强"],
+    ["LAST_16", "16强"],
+    ["ROUND_OF_16", "16强"],
+    ["QUARTER_FINALS", "8强"],
+    ["QUARTER_FINAL", "8强"],
+    ["SEMI_FINALS", "半决赛"],
+    ["SEMI_FINAL", "半决赛"],
+    ["FINAL", "决赛"]
+  ]);
+  return names.get(getStage(item)) || "淘汰赛";
 }
 
 function getVenue(item) {

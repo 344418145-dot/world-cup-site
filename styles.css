@@ -332,6 +332,11 @@ tr.third .pos {
   height: auto;
 }
 
+.bracket-trophy,
+.champion-cup {
+  display: none !important;
+}
+
 .bracket-lines path {
   fill: none;
   stroke: #aebdc5;

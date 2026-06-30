@@ -424,7 +424,13 @@ function normalizeScore(score) {
   const home = Number(rawHome);
   const away = Number(rawAway);
   if (Number.isNaN(home) || Number.isNaN(away)) return null;
-  return { home, away };
+  const penaltyHome = score.penalties?.home ?? score.penalty?.home ?? score.penaltyShootout?.home;
+  const penaltyAway = score.penalties?.away ?? score.penalty?.away ?? score.penaltyShootout?.away;
+  const penalties = penaltyHome !== null && penaltyHome !== undefined && penaltyAway !== null && penaltyAway !== undefined
+    && Number.isFinite(Number(penaltyHome)) && Number.isFinite(Number(penaltyAway))
+    ? { home: Number(penaltyHome), away: Number(penaltyAway) }
+    : null;
+  return penalties ? { home, away, penalties } : { home, away };
 }
 
 function formatBeijingKickoff(value) {
@@ -731,13 +737,19 @@ function isFinished(m) {
 function renderMatchScore(m) {
   if (!m?.score && isPastMatch(m)) return "待更新";
   if (!m?.score) return "VS";
-  return `${m.score.home} - ${m.score.away}`;
+  return scoreLabel(m.score);
 }
 
 function renderScoreSuffix(m) {
-  if (isFinished(m) && m.score) return ` · ${m.score.home}-${m.score.away}`;
+  if (isFinished(m) && m.score) return ` · ${scoreLabel(m.score)}`;
   if (isPastMatch(m)) return " · 结果待更新";
   return "";
+}
+
+function scoreLabel(score) {
+  const base = `${score.home} - ${score.away}`;
+  if (score.penalties) return `${base} 点球 ${score.penalties.home} - ${score.penalties.away}`;
+  return base;
 }
 
 function matchStatusLabel(m) {
@@ -875,19 +887,19 @@ function renderBracketSvg() {
   const card = { width: 160, height: 64 };
   const positions = bracketPositions(card);
   const connectors = [
-    ...pairConnectors([73, 74, 75, 76, 77, 78, 79, 80], [89, 90, 91, 92], positions, card, "left"),
-    ...pairConnectors([89, 90, 91, 92], [97, 98], positions, card, "left"),
+    ...pairConnectors([74, 77, 73, 75, 83, 84, 81, 82], [90, 89, 93, 94], positions, card, "left"),
+    ...pairConnectors([89, 90, 93, 94], [97, 98], positions, card, "left"),
     ...pairConnectors([97, 98], [101], positions, card, "left"),
-    ...pairConnectors([81, 82, 83, 84, 85, 86, 87, 88], [93, 94, 95, 96], positions, card, "right"),
-    ...pairConnectors([93, 94, 95, 96], [99, 100], positions, card, "right"),
+    ...pairConnectors([76, 78, 79, 80, 86, 88, 85, 87], [91, 92, 95, 96], positions, card, "right"),
+    ...pairConnectors([91, 92, 95, 96], [99, 100], positions, card, "right"),
     ...pairConnectors([99, 100], [102], positions, card, "right"),
     connectorPath(101, 104, positions, card, "left"),
     connectorPath(102, 104, positions, card, "right")
   ];
   const matchOrder = [
-    73, 74, 75, 76, 77, 78, 79, 80, 89, 90, 91, 92, 97, 98, 101,
+    74, 77, 73, 75, 83, 84, 81, 82, 90, 89, 93, 94, 97, 98, 101,
     104,
-    102, 99, 100, 93, 94, 95, 96, 81, 82, 83, 84, 85, 86, 87, 88
+    102, 99, 100, 91, 92, 95, 96, 76, 78, 79, 80, 86, 88, 85, 87
   ];
 
   return `
@@ -913,13 +925,15 @@ function bracketPositions(card) {
   const r32Y = Array.from({ length: 8 }, (_, index) => 58 + index * 90);
   const midY = (a, b) => (a + card.height / 2 + b + card.height / 2) / 2 - card.height / 2;
   const positions = {};
-  [73, 74, 75, 76, 77, 78, 79, 80].forEach((matchNo, index) => positions[matchNo] = { x: 30, y: r32Y[index] });
-  [81, 82, 83, 84, 85, 86, 87, 88].forEach((matchNo, index) => positions[matchNo] = { x: 1410, y: r32Y[index] });
-  [89, 90, 91, 92].forEach((matchNo, index) => positions[matchNo] = { x: 220, y: midY(r32Y[index * 2], r32Y[index * 2 + 1]) });
-  [93, 94, 95, 96].forEach((matchNo, index) => positions[matchNo] = { x: 1220, y: midY(r32Y[index * 2], r32Y[index * 2 + 1]) });
+  const leftR32 = [74, 77, 73, 75, 83, 84, 81, 82];
+  const rightR32 = [76, 78, 79, 80, 86, 88, 85, 87];
+  leftR32.forEach((matchNo, index) => positions[matchNo] = { x: 30, y: r32Y[index] });
+  rightR32.forEach((matchNo, index) => positions[matchNo] = { x: 1410, y: r32Y[index] });
+  [90, 89, 93, 94].forEach((matchNo, index) => positions[matchNo] = { x: 220, y: midY(r32Y[index * 2], r32Y[index * 2 + 1]) });
+  [91, 92, 95, 96].forEach((matchNo, index) => positions[matchNo] = { x: 1220, y: midY(r32Y[index * 2], r32Y[index * 2 + 1]) });
   positions[97] = { x: 390, y: midY(positions[89].y, positions[90].y) };
-  positions[98] = { x: 390, y: midY(positions[91].y, positions[92].y) };
-  positions[99] = { x: 1050, y: midY(positions[93].y, positions[94].y) };
+  positions[98] = { x: 390, y: midY(positions[93].y, positions[94].y) };
+  positions[99] = { x: 1050, y: midY(positions[91].y, positions[92].y) };
   positions[100] = { x: 1050, y: midY(positions[95].y, positions[96].y) };
   positions[101] = { x: 520, y: midY(positions[97].y, positions[98].y) };
   positions[102] = { x: 920, y: midY(positions[99].y, positions[100].y) };
@@ -974,16 +988,16 @@ function bracketMatchDisplay(matchNo) {
     home,
     away,
     time: bracketTimeLabel(matchNo, matchItem).replace("北京时间 ", ""),
-    score: matchItem?.score ? `${matchItem.score.home}-${matchItem.score.away}` : ""
+    score: matchItem?.score ? scoreLabel(matchItem.score).replaceAll(" - ", "-") : ""
   };
 }
 
 function bracketFallbackTeams(matchNo) {
   if (roundOf32Slots[matchNo]) return roundOf32Slots[matchNo];
   const previous = {
-    89: [73, 74], 90: [75, 76], 91: [77, 78], 92: [79, 80],
-    93: [81, 82], 94: [83, 84], 95: [85, 86], 96: [87, 88],
-    97: [89, 90], 98: [91, 92], 99: [93, 94], 100: [95, 96],
+    89: [73, 75], 90: [74, 77], 91: [76, 78], 92: [79, 80],
+    93: [83, 84], 94: [81, 82], 95: [86, 88], 96: [85, 87],
+    97: [89, 90], 98: [93, 94], 99: [91, 92], 100: [95, 96],
     101: [97, 98], 102: [99, 100], 104: [101, 102]
   };
   const pair = previous[matchNo] || [];
@@ -1078,22 +1092,22 @@ function bracketTimeLabel(matchNo, matchItem) {
 
 function fallbackKnockoutTime(matchNo) {
   const times = {
-    73: "北京时间 6月30日 04:30",
-    74: "北京时间 7月1日 05:00",
-    75: "北京时间 6月29日 03:00",
-    76: "北京时间 6月30日 09:00",
-    77: "北京时间 7月3日 07:00",
-    78: "北京时间 7月3日 03:00",
-    79: "北京时间 7月2日 08:00",
-    80: "北京时间 7月2日 04:00",
-    81: "北京时间 6月30日 01:00",
-    82: "北京时间 7月1日 01:00",
-    83: "北京时间 7月1日 09:00",
-    84: "北京时间 7月2日 00:00",
-    85: "北京时间 7月4日 06:00",
-    86: "北京时间 7月4日 02:00",
-    87: "北京时间 7月3日 11:00",
-    88: "北京时间 7月4日 09:30",
+    73: "北京时间 6月29日 03:00",
+    74: "北京时间 6月30日 04:30",
+    75: "北京时间 6月30日 09:00",
+    76: "北京时间 6月30日 01:00",
+    77: "北京时间 7月1日 05:00",
+    78: "北京时间 7月1日 01:00",
+    79: "北京时间 7月1日 09:00",
+    80: "北京时间 7月2日 00:00",
+    81: "北京时间 7月2日 08:00",
+    82: "北京时间 7月2日 04:00",
+    83: "北京时间 7月3日 07:00",
+    84: "北京时间 7月3日 03:00",
+    85: "北京时间 7月3日 11:00",
+    86: "北京时间 7月4日 06:00",
+    87: "北京时间 7月4日 09:30",
+    88: "北京时间 7月4日 02:00",
     89: "北京时间 7月5日 03:00",
     90: "北京时间 7月5日 07:00",
     91: "北京时间 7月6日 03:00",
