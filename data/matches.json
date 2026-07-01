@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-01T18:21:27.207Z",
+  "updatedAt": "2026-07-01T22:50:45.188Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1634,8 +1634,11 @@
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月2日 04:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "PAUSED",
+      "score": {
+        "home": 3,
+        "away": 2
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "比利时 待更新 · 塞内加尔 待更新",
@@ -1819,9 +1822,25 @@
       }
     },
     {
-      "date": "2026-07-07",
+      "date": "2026-07-06",
       "home": "",
       "away": "",
+      "groupName": "16强",
+      "time": "19:00 UTC",
+      "beijingTime": "北京时间 2026年7月7日 03:00",
+      "venue": "World",
+      "status": "TIMED",
+      "score": null,
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": " 待更新 ·  待更新",
+        "ranking": " 待更新 ·  待更新"
+      }
+    },
+    {
+      "date": "2026-07-07",
+      "home": "",
+      "away": "belgium",
       "groupName": "16强",
       "time": "00:00 UTC",
       "beijingTime": "北京时间 2026年7月7日 08:00",
@@ -1830,8 +1849,8 @@
       "score": null,
       "data": {
         "h2h": "暂无完整交锋数据",
-        "form": " 待更新 ·  待更新",
-        "ranking": " 待更新 ·  待更新"
+        "form": " 待更新 · 比利时 待更新",
+        "ranking": " 待更新 · 比利时 待更新"
       }
     },
     {
@@ -2021,8 +2040,11 @@
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月2日 04:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "PAUSED",
+      "score": {
+        "home": 3,
+        "away": 2
+      }
     },
     {
       "matchNo": 83,
@@ -2183,9 +2205,9 @@
       "stage": "LAST_16",
       "date": "2026-07-07",
       "home": "",
-      "away": "",
+      "away": "belgium",
       "homeName": "",
-      "awayName": "",
+      "awayName": "比利时",
       "time": "00:00 UTC",
       "beijingTime": "北京时间 2026年7月7日 08:00",
       "venue": "World",
