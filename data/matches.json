@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-01T10:56:39.106Z",
+  "updatedAt": "2026-07-01T18:21:27.207Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1615,8 +1615,11 @@
       "time": "16:00 UTC",
       "beijingTime": "北京时间 2026年7月2日 00:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "FINISHED",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "英格兰 待更新 · 民主刚果 待更新",
@@ -1802,7 +1805,7 @@
     {
       "date": "2026-07-06",
       "home": "mexico",
-      "away": "",
+      "away": "england",
       "groupName": "16强",
       "time": "00:00 UTC",
       "beijingTime": "北京时间 2026年7月6日 08:00",
@@ -1811,8 +1814,8 @@
       "score": null,
       "data": {
         "h2h": "暂无完整交锋数据",
-        "form": "墨西哥 待更新 ·  待更新",
-        "ranking": "墨西哥 待更新 ·  待更新"
+        "form": "墨西哥 待更新 · 英格兰 待更新",
+        "ranking": "墨西哥 待更新 · 英格兰 待更新"
       }
     },
     {
@@ -1987,8 +1990,11 @@
       "time": "16:00 UTC",
       "beijingTime": "北京时间 2026年7月2日 00:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "FINISHED",
+      "score": {
+        "home": 2,
+        "away": 1
+      }
     },
     {
       "matchNo": 81,
@@ -2149,9 +2155,9 @@
       "stage": "LAST_16",
       "date": "2026-07-06",
       "home": "mexico",
-      "away": "",
+      "away": "england",
       "homeName": "墨西哥",
-      "awayName": "",
+      "awayName": "英格兰",
       "time": "00:00 UTC",
       "beijingTime": "北京时间 2026年7月6日 08:00",
       "venue": "World",
