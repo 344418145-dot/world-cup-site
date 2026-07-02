@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-01T22:50:45.188Z",
+  "updatedAt": "2026-07-02T10:16:08.754Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1577,8 +1577,8 @@
       "home": "mexico",
       "away": "ecuador",
       "groupName": "32强",
-      "time": "01:00 UTC",
-      "beijingTime": "北京时间 2026年7月1日 09:00",
+      "time": "02:00 UTC",
+      "beijingTime": "北京时间 2026年7月1日 10:00",
       "venue": "World",
       "status": "FINISHED",
       "score": {
@@ -1634,7 +1634,7 @@
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月2日 04:00",
       "venue": "World",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "score": {
         "home": 3,
         "away": 2
@@ -1653,8 +1653,11 @@
       "time": "00:00 UTC",
       "beijingTime": "北京时间 2026年7月2日 08:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "FINISHED",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "美国 待更新 · 波黑 待更新",
@@ -1839,7 +1842,7 @@
     },
     {
       "date": "2026-07-07",
-      "home": "",
+      "home": "usa",
       "away": "belgium",
       "groupName": "16强",
       "time": "00:00 UTC",
@@ -1849,8 +1852,8 @@
       "score": null,
       "data": {
         "h2h": "暂无完整交锋数据",
-        "form": " 待更新 · 比利时 待更新",
-        "ranking": " 待更新 · 比利时 待更新"
+        "form": "美国 待更新 · 比利时 待更新",
+        "ranking": "美国 待更新 · 比利时 待更新"
       }
     },
     {
@@ -1989,8 +1992,8 @@
       "away": "ecuador",
       "homeName": "墨西哥",
       "awayName": "厄瓜多尔",
-      "time": "01:00 UTC",
-      "beijingTime": "北京时间 2026年7月1日 09:00",
+      "time": "02:00 UTC",
+      "beijingTime": "北京时间 2026年7月1日 10:00",
       "venue": "World",
       "status": "FINISHED",
       "score": {
@@ -2026,8 +2029,11 @@
       "time": "00:00 UTC",
       "beijingTime": "北京时间 2026年7月2日 08:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "FINISHED",
+      "score": {
+        "home": 2,
+        "away": 0
+      }
     },
     {
       "matchNo": 82,
@@ -2040,7 +2046,7 @@
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月2日 04:00",
       "venue": "World",
-      "status": "PAUSED",
+      "status": "FINISHED",
       "score": {
         "home": 3,
         "away": 2
@@ -2204,9 +2210,9 @@
       "matchNo": 94,
       "stage": "LAST_16",
       "date": "2026-07-07",
-      "home": "",
+      "home": "usa",
       "away": "belgium",
-      "homeName": "",
+      "homeName": "美国",
       "awayName": "比利时",
       "time": "00:00 UTC",
       "beijingTime": "北京时间 2026年7月7日 08:00",
