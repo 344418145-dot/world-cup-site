@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-03T15:54:25.229Z",
+  "updatedAt": "2026-07-03T20:21:22.134Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1729,8 +1729,11 @@
       "time": "18:00 UTC",
       "beijingTime": "北京时间 2026年7月4日 02:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "IN_PLAY",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "澳大利亚 待更新 · 埃及 待更新",
@@ -2167,8 +2170,11 @@
       "time": "18:00 UTC",
       "beijingTime": "北京时间 2026年7月4日 02:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "IN_PLAY",
+      "score": {
+        "home": 1,
+        "away": 1
+      }
     },
     {
       "matchNo": 89,
