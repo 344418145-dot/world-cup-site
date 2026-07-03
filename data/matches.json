@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-02T20:45:33.132Z",
+  "updatedAt": "2026-07-03T08:38:04.632Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1672,9 +1672,9 @@
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月3日 03:00",
       "venue": "World",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "score": {
-        "home": 2,
+        "home": 3,
         "away": 0
       },
       "data": {
@@ -1691,8 +1691,11 @@
       "time": "23:00 UTC",
       "beijingTime": "北京时间 2026年7月3日 07:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "FINISHED",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "葡萄牙 待更新 · 克罗地亚 待更新",
@@ -1707,8 +1710,11 @@
       "time": "03:00 UTC",
       "beijingTime": "北京时间 2026年7月3日 11:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "FINISHED",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "瑞士 待更新 · 阿尔及利亚 待更新",
@@ -1829,7 +1835,7 @@
     },
     {
       "date": "2026-07-06",
-      "home": "",
+      "home": "portugal",
       "away": "spain",
       "groupName": "16强",
       "time": "19:00 UTC",
@@ -1839,8 +1845,8 @@
       "score": null,
       "data": {
         "h2h": "暂无完整交锋数据",
-        "form": " 待更新 · 西班牙 待更新",
-        "ranking": " 待更新 · 西班牙 待更新"
+        "form": "葡萄牙 待更新 · 西班牙 待更新",
+        "ranking": "葡萄牙 待更新 · 西班牙 待更新"
       }
     },
     {
@@ -1864,8 +1870,8 @@
       "home": "",
       "away": "",
       "groupName": "16强",
-      "time": "20:00 UTC",
-      "beijingTime": "北京时间 2026年7月8日 04:00",
+      "time": "16:00 UTC",
+      "beijingTime": "北京时间 2026年7月8日 00:00",
       "venue": "World",
       "status": "TIMED",
       "score": null,
@@ -1873,6 +1879,22 @@
         "h2h": "暂无完整交锋数据",
         "form": " 待更新 ·  待更新",
         "ranking": " 待更新 ·  待更新"
+      }
+    },
+    {
+      "date": "2026-07-07",
+      "home": "switzerland",
+      "away": "",
+      "groupName": "16强",
+      "time": "20:00 UTC",
+      "beijingTime": "北京时间 2026年7月8日 04:00",
+      "venue": "World",
+      "status": "TIMED",
+      "score": null,
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "瑞士 待更新 ·  待更新",
+        "ranking": "瑞士 待更新 ·  待更新"
       }
     }
   ],
@@ -2066,8 +2088,11 @@
       "time": "23:00 UTC",
       "beijingTime": "北京时间 2026年7月3日 07:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "FINISHED",
+      "score": {
+        "home": 2,
+        "away": 1
+      }
     },
     {
       "matchNo": 84,
@@ -2080,9 +2105,9 @@
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月3日 03:00",
       "venue": "World",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "score": {
-        "home": 2,
+        "home": 3,
         "away": 0
       }
     },
@@ -2097,8 +2122,11 @@
       "time": "03:00 UTC",
       "beijingTime": "北京时间 2026年7月3日 11:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "FINISHED",
+      "score": {
+        "home": 2,
+        "away": 0
+      }
     },
     {
       "matchNo": 86,
@@ -2202,9 +2230,9 @@
       "matchNo": 93,
       "stage": "LAST_16",
       "date": "2026-07-06",
-      "home": "",
+      "home": "portugal",
       "away": "spain",
-      "homeName": "",
+      "homeName": "葡萄牙",
       "awayName": "西班牙",
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月7日 03:00",
@@ -2244,9 +2272,9 @@
       "matchNo": 96,
       "stage": "LAST_16",
       "date": "2026-07-07",
-      "home": "",
+      "home": "switzerland",
       "away": "",
-      "homeName": "",
+      "homeName": "瑞士",
       "awayName": "",
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月8日 04:00",
