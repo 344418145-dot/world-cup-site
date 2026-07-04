@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-03T20:21:22.134Z",
+  "updatedAt": "2026-07-04T00:17:20.176Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1729,10 +1729,14 @@
       "time": "18:00 UTC",
       "beijingTime": "北京时间 2026年7月4日 02:00",
       "venue": "World",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "score": {
-        "home": 1,
-        "away": 1
+        "home": 3,
+        "away": 5,
+        "penalties": {
+          "home": 4,
+          "away": 4
+        }
       },
       "data": {
         "h2h": "暂无完整交锋数据",
@@ -1748,8 +1752,11 @@
       "time": "22:00 UTC",
       "beijingTime": "北京时间 2026年7月4日 06:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "IN_PLAY",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "阿根廷 待更新 · 佛得角 待更新",
@@ -1870,8 +1877,8 @@
     },
     {
       "date": "2026-07-07",
-      "home": "",
-      "away": "",
+      "home": "argentina",
+      "away": "egypt",
       "groupName": "16强",
       "time": "16:00 UTC",
       "beijingTime": "北京时间 2026年7月8日 00:00",
@@ -1880,8 +1887,8 @@
       "score": null,
       "data": {
         "h2h": "暂无完整交锋数据",
-        "form": " 待更新 ·  待更新",
-        "ranking": " 待更新 ·  待更新"
+        "form": "阿根廷 待更新 · 埃及 待更新",
+        "ranking": "阿根廷 待更新 · 埃及 待更新"
       }
     },
     {
@@ -2142,8 +2149,11 @@
       "time": "22:00 UTC",
       "beijingTime": "北京时间 2026年7月4日 06:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "IN_PLAY",
+      "score": {
+        "home": 2,
+        "away": 1
+      }
     },
     {
       "matchNo": 87,
@@ -2170,10 +2180,14 @@
       "time": "18:00 UTC",
       "beijingTime": "北京时间 2026年7月4日 02:00",
       "venue": "World",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "score": {
-        "home": 1,
-        "away": 1
+        "home": 3,
+        "away": 5,
+        "penalties": {
+          "home": 4,
+          "away": 4
+        }
       }
     },
     {
@@ -2264,10 +2278,10 @@
       "matchNo": 95,
       "stage": "LAST_16",
       "date": "2026-07-07",
-      "home": "",
-      "away": "",
-      "homeName": "",
-      "awayName": "",
+      "home": "argentina",
+      "away": "egypt",
+      "homeName": "阿根廷",
+      "awayName": "埃及",
       "time": "16:00 UTC",
       "beijingTime": "北京时间 2026年7月8日 00:00",
       "venue": "World",
