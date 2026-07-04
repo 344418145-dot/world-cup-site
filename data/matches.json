@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-04T18:16:28.053Z",
+  "updatedAt": "2026-07-04T21:42:23.549Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1456,7 +1456,7 @@
     },
     {
       "date": "2026-07-09",
-      "home": "",
+      "home": "morocco",
       "away": "",
       "groupName": "8强",
       "time": "20:00 UTC",
@@ -1466,8 +1466,8 @@
       "score": null,
       "data": {
         "h2h": "暂无完整交锋数据",
-        "form": " 待更新 ·  待更新",
-        "ranking": " 待更新 ·  待更新"
+        "form": "摩洛哥 待更新 ·  待更新",
+        "ranking": "摩洛哥 待更新 ·  待更新"
       }
     },
     {
@@ -1790,10 +1790,10 @@
       "time": "17:00 UTC",
       "beijingTime": "北京时间 2026年7月5日 01:00",
       "venue": "World",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "score": {
         "home": 0,
-        "away": 0
+        "away": 3
       },
       "data": {
         "h2h": "暂无完整交锋数据",
@@ -1809,8 +1809,11 @@
       "time": "21:00 UTC",
       "beijingTime": "北京时间 2026年7月5日 05:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "LIVE",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "巴拉圭 待更新 · 法国 待更新",
@@ -2210,10 +2213,10 @@
       "time": "17:00 UTC",
       "beijingTime": "北京时间 2026年7月5日 01:00",
       "venue": "World",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "score": {
         "home": 0,
-        "away": 0
+        "away": 3
       }
     },
     {
@@ -2227,8 +2230,11 @@
       "time": "21:00 UTC",
       "beijingTime": "北京时间 2026年7月5日 05:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "LIVE",
+      "score": {
+        "home": 0,
+        "away": 0
+      }
     },
     {
       "matchNo": 91,
@@ -2318,9 +2324,9 @@
       "matchNo": 97,
       "stage": "QUARTER_FINALS",
       "date": "2026-07-09",
-      "home": "",
+      "home": "morocco",
       "away": "",
-      "homeName": "",
+      "homeName": "摩洛哥",
       "awayName": "",
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月10日 04:00",
