@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-04T14:47:35.531Z",
+  "updatedAt": "2026-07-04T18:16:28.053Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1790,8 +1790,11 @@
       "time": "17:00 UTC",
       "beijingTime": "北京时间 2026年7月5日 01:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "IN_PLAY",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "加拿大 待更新 · 摩洛哥 待更新",
@@ -2207,8 +2210,11 @@
       "time": "17:00 UTC",
       "beijingTime": "北京时间 2026年7月5日 01:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "IN_PLAY",
+      "score": {
+        "home": 0,
+        "away": 0
+      }
     },
     {
       "matchNo": 90,
