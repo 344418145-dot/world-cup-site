@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-04T00:17:20.176Z",
+  "updatedAt": "2026-07-04T09:29:19.221Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1734,7 +1734,7 @@
         "home": 3,
         "away": 5,
         "penalties": {
-          "home": 4,
+          "home": 2,
           "away": 4
         }
       },
@@ -1752,10 +1752,10 @@
       "time": "22:00 UTC",
       "beijingTime": "北京时间 2026年7月4日 06:00",
       "venue": "World",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "score": {
-        "home": 2,
-        "away": 1
+        "home": 3,
+        "away": 2
       },
       "data": {
         "h2h": "暂无完整交锋数据",
@@ -1771,8 +1771,11 @@
       "time": "01:30 UTC",
       "beijingTime": "北京时间 2026年7月4日 09:30",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "FINISHED",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "哥伦比亚 待更新 · 加纳 待更新",
@@ -1894,7 +1897,7 @@
     {
       "date": "2026-07-07",
       "home": "switzerland",
-      "away": "",
+      "away": "colombia",
       "groupName": "16强",
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月8日 04:00",
@@ -1903,8 +1906,8 @@
       "score": null,
       "data": {
         "h2h": "暂无完整交锋数据",
-        "form": "瑞士 待更新 ·  待更新",
-        "ranking": "瑞士 待更新 ·  待更新"
+        "form": "瑞士 待更新 · 哥伦比亚 待更新",
+        "ranking": "瑞士 待更新 · 哥伦比亚 待更新"
       }
     }
   ],
@@ -2149,10 +2152,10 @@
       "time": "22:00 UTC",
       "beijingTime": "北京时间 2026年7月4日 06:00",
       "venue": "World",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "score": {
-        "home": 2,
-        "away": 1
+        "home": 3,
+        "away": 2
       }
     },
     {
@@ -2166,8 +2169,11 @@
       "time": "01:30 UTC",
       "beijingTime": "北京时间 2026年7月4日 09:30",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "FINISHED",
+      "score": {
+        "home": 1,
+        "away": 0
+      }
     },
     {
       "matchNo": 88,
@@ -2185,7 +2191,7 @@
         "home": 3,
         "away": 5,
         "penalties": {
-          "home": 4,
+          "home": 2,
           "away": 4
         }
       }
@@ -2293,9 +2299,9 @@
       "stage": "LAST_16",
       "date": "2026-07-07",
       "home": "switzerland",
-      "away": "",
+      "away": "colombia",
       "homeName": "瑞士",
-      "awayName": "",
+      "awayName": "哥伦比亚",
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月8日 04:00",
       "venue": "World",
