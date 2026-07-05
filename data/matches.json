@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-05T16:38:45.571Z",
+  "updatedAt": "2026-07-05T20:37:41.186Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1828,8 +1828,11 @@
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月6日 04:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "IN_PLAY",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "巴西 待更新 · 挪威 待更新",
@@ -2247,8 +2250,11 @@
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月6日 04:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "IN_PLAY",
+      "score": {
+        "home": 0,
+        "away": 0
+      }
     },
     {
       "matchNo": 92,
