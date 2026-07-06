@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-06T19:10:39.782Z",
+  "updatedAt": "2026-07-06T22:51:04.719Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1472,7 +1472,7 @@
     },
     {
       "date": "2026-07-10",
-      "home": "",
+      "home": "spain",
       "away": "",
       "groupName": "8强",
       "time": "19:00 UTC",
@@ -1482,8 +1482,8 @@
       "score": null,
       "data": {
         "h2h": "暂无完整交锋数据",
-        "form": " 待更新 ·  待更新",
-        "ranking": " 待更新 ·  待更新"
+        "form": "西班牙 待更新 ·  待更新",
+        "ranking": "西班牙 待更新 ·  待更新"
       }
     },
     {
@@ -1882,10 +1882,10 @@
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月7日 03:00",
       "venue": "World",
-      "status": "LIVE",
+      "status": "FINISHED",
       "score": {
         "home": 0,
-        "away": 0
+        "away": 1
       },
       "data": {
         "h2h": "暂无完整交锋数据",
@@ -2306,10 +2306,10 @@
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月7日 03:00",
       "venue": "World",
-      "status": "LIVE",
+      "status": "FINISHED",
       "score": {
         "home": 0,
-        "away": 0
+        "away": 1
       }
     },
     {
@@ -2372,9 +2372,9 @@
       "matchNo": 98,
       "stage": "QUARTER_FINALS",
       "date": "2026-07-10",
-      "home": "",
+      "home": "spain",
       "away": "",
-      "homeName": "",
+      "homeName": "西班牙",
       "awayName": "",
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月11日 03:00",
