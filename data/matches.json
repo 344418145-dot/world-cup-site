@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-05T20:37:41.186Z",
+  "updatedAt": "2026-07-06T12:15:37.331Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1487,6 +1487,22 @@
       }
     },
     {
+      "date": "2026-07-11",
+      "home": "norway",
+      "away": "england",
+      "groupName": "8强",
+      "time": "21:00 UTC",
+      "beijingTime": "北京时间 2026年7月12日 05:00",
+      "venue": "World",
+      "status": "TIMED",
+      "score": null,
+      "data": {
+        "h2h": "暂无完整交锋数据",
+        "form": "挪威 待更新 · 英格兰 待更新",
+        "ranking": "挪威 待更新 · 英格兰 待更新"
+      }
+    },
+    {
       "date": "2026-07-12",
       "home": "",
       "away": "",
@@ -1828,10 +1844,10 @@
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月6日 04:00",
       "venue": "World",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "score": {
-        "home": 0,
-        "away": 0
+        "home": 1,
+        "away": 2
       },
       "data": {
         "h2h": "暂无完整交锋数据",
@@ -1844,11 +1860,14 @@
       "home": "mexico",
       "away": "england",
       "groupName": "16强",
-      "time": "00:00 UTC",
-      "beijingTime": "北京时间 2026年7月6日 08:00",
+      "time": "01:00 UTC",
+      "beijingTime": "北京时间 2026年7月6日 09:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "FINISHED",
+      "score": {
+        "home": 2,
+        "away": 3
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "墨西哥 待更新 · 英格兰 待更新",
@@ -2250,10 +2269,10 @@
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月6日 04:00",
       "venue": "World",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "score": {
-        "home": 0,
-        "away": 0
+        "home": 1,
+        "away": 2
       }
     },
     {
@@ -2264,11 +2283,14 @@
       "away": "england",
       "homeName": "墨西哥",
       "awayName": "英格兰",
-      "time": "00:00 UTC",
-      "beijingTime": "北京时间 2026年7月6日 08:00",
+      "time": "01:00 UTC",
+      "beijingTime": "北京时间 2026年7月6日 09:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "FINISHED",
+      "score": {
+        "home": 2,
+        "away": 3
+      }
     },
     {
       "matchNo": 93,
@@ -2358,10 +2380,10 @@
       "matchNo": 99,
       "stage": "QUARTER_FINALS",
       "date": "2026-07-11",
-      "home": "",
-      "away": "",
-      "homeName": "",
-      "awayName": "",
+      "home": "norway",
+      "away": "england",
+      "homeName": "挪威",
+      "awayName": "英格兰",
       "time": "21:00 UTC",
       "beijingTime": "北京时间 2026年7月12日 05:00",
       "venue": "World",
