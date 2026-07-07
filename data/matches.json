@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-06T22:51:04.719Z",
+  "updatedAt": "2026-07-07T10:39:19.285Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1473,7 +1473,7 @@
     {
       "date": "2026-07-10",
       "home": "spain",
-      "away": "",
+      "away": "belgium",
       "groupName": "8强",
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月11日 03:00",
@@ -1482,8 +1482,8 @@
       "score": null,
       "data": {
         "h2h": "暂无完整交锋数据",
-        "form": "西班牙 待更新 ·  待更新",
-        "ranking": "西班牙 待更新 ·  待更新"
+        "form": "西班牙 待更新 · 比利时 待更新",
+        "ranking": "西班牙 待更新 · 比利时 待更新"
       }
     },
     {
@@ -1901,8 +1901,11 @@
       "time": "00:00 UTC",
       "beijingTime": "北京时间 2026年7月7日 08:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "FINISHED",
+      "score": {
+        "home": 1,
+        "away": 4
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "美国 待更新 · 比利时 待更新",
@@ -2323,8 +2326,11 @@
       "time": "00:00 UTC",
       "beijingTime": "北京时间 2026年7月7日 08:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "FINISHED",
+      "score": {
+        "home": 1,
+        "away": 4
+      }
     },
     {
       "matchNo": 95,
@@ -2373,9 +2379,9 @@
       "stage": "QUARTER_FINALS",
       "date": "2026-07-10",
       "home": "spain",
-      "away": "",
+      "away": "belgium",
       "homeName": "西班牙",
-      "awayName": "",
+      "awayName": "比利时",
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月11日 03:00",
       "venue": "World",
