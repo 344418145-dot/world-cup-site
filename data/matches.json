@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-07T18:24:40.009Z",
+  "updatedAt": "2026-07-07T22:37:08.509Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1939,8 +1939,11 @@
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月8日 04:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "IN_PLAY",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "瑞士 待更新 · 哥伦比亚 待更新",
@@ -2363,8 +2366,11 @@
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月8日 04:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "IN_PLAY",
+      "score": {
+        "home": 0,
+        "away": 0
+      }
     },
     {
       "matchNo": 97,
