@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-07T22:37:08.509Z",
+  "updatedAt": "2026-07-08T07:42:40.778Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1505,7 +1505,7 @@
     {
       "date": "2026-07-12",
       "home": "argentina",
-      "away": "",
+      "away": "switzerland",
       "groupName": "8强",
       "time": "01:00 UTC",
       "beijingTime": "北京时间 2026年7月12日 09:00",
@@ -1514,8 +1514,8 @@
       "score": null,
       "data": {
         "h2h": "暂无完整交锋数据",
-        "form": "阿根廷 待更新 ·  待更新",
-        "ranking": "阿根廷 待更新 ·  待更新"
+        "form": "阿根廷 待更新 · 瑞士 待更新",
+        "ranking": "阿根廷 待更新 · 瑞士 待更新"
       }
     },
     {
@@ -1939,10 +1939,14 @@
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月8日 04:00",
       "venue": "World",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "score": {
-        "home": 0,
-        "away": 0
+        "home": 4,
+        "away": 3,
+        "penalties": {
+          "home": 4,
+          "away": 3
+        }
       },
       "data": {
         "h2h": "暂无完整交锋数据",
@@ -2366,10 +2370,14 @@
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月8日 04:00",
       "venue": "World",
-      "status": "IN_PLAY",
+      "status": "FINISHED",
       "score": {
-        "home": 0,
-        "away": 0
+        "home": 4,
+        "away": 3,
+        "penalties": {
+          "home": 4,
+          "away": 3
+        }
       }
     },
     {
@@ -2419,9 +2427,9 @@
       "stage": "QUARTER_FINALS",
       "date": "2026-07-12",
       "home": "argentina",
-      "away": "",
+      "away": "switzerland",
       "homeName": "阿根廷",
-      "awayName": "",
+      "awayName": "瑞士",
       "time": "01:00 UTC",
       "beijingTime": "北京时间 2026年7月12日 09:00",
       "venue": "World",
