@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-09T17:32:59.517Z",
+  "updatedAt": "2026-07-09T22:48:07.406Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1462,8 +1462,11 @@
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月10日 04:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "FINISHED",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "法国 待更新 · 摩洛哥 待更新",
@@ -1520,7 +1523,7 @@
     },
     {
       "date": "2026-07-14",
-      "home": "",
+      "home": "france",
       "away": "",
       "groupName": "半决赛",
       "time": "19:00 UTC",
@@ -1530,8 +1533,8 @@
       "score": null,
       "data": {
         "h2h": "暂无完整交锋数据",
-        "form": " 待更新 ·  待更新",
-        "ranking": " 待更新 ·  待更新"
+        "form": "法国 待更新 ·  待更新",
+        "ranking": "法国 待更新 ·  待更新"
       }
     },
     {
@@ -2391,8 +2394,11 @@
       "time": "20:00 UTC",
       "beijingTime": "北京时间 2026年7月10日 04:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "FINISHED",
+      "score": {
+        "home": 2,
+        "away": 0
+      }
     },
     {
       "matchNo": 98,
@@ -2440,9 +2446,9 @@
       "matchNo": 101,
       "stage": "SEMI_FINALS",
       "date": "2026-07-14",
-      "home": "",
+      "home": "france",
       "away": "",
-      "homeName": "",
+      "homeName": "法国",
       "awayName": "",
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月15日 03:00",
