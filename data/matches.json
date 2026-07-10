@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-10T17:23:31.196Z",
+  "updatedAt": "2026-07-10T21:32:38.987Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1481,8 +1481,11 @@
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月11日 03:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "FINISHED",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "西班牙 待更新 · 比利时 待更新",
@@ -1524,7 +1527,7 @@
     {
       "date": "2026-07-14",
       "home": "france",
-      "away": "",
+      "away": "spain",
       "groupName": "半决赛",
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月15日 03:00",
@@ -1533,8 +1536,8 @@
       "score": null,
       "data": {
         "h2h": "暂无完整交锋数据",
-        "form": "法国 待更新 ·  待更新",
-        "ranking": "法国 待更新 ·  待更新"
+        "form": "法国 待更新 · 西班牙 待更新",
+        "ranking": "法国 待更新 · 西班牙 待更新"
       }
     },
     {
@@ -2411,8 +2414,11 @@
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月11日 03:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "FINISHED",
+      "score": {
+        "home": 2,
+        "away": 1
+      }
     },
     {
       "matchNo": 99,
@@ -2447,9 +2453,9 @@
       "stage": "SEMI_FINALS",
       "date": "2026-07-14",
       "home": "france",
-      "away": "",
+      "away": "spain",
       "homeName": "法国",
-      "awayName": "",
+      "awayName": "西班牙",
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月15日 03:00",
       "venue": "World",
