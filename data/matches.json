@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-14T16:47:28.658Z",
+  "updatedAt": "2026-07-14T20:42:05.529Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1538,8 +1538,11 @@
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月15日 03:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "IN_PLAY",
+      "score": {
+        "home": 0,
+        "away": 2
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "法国 待更新 · 西班牙 待更新",
@@ -1621,7 +1624,7 @@
     },
     {
       "date": "2026-07-19",
-      "home": "",
+      "home": "spain",
       "away": "",
       "groupName": "决赛",
       "time": "19:00 UTC",
@@ -1631,8 +1634,8 @@
       "score": null,
       "data": {
         "h2h": "暂无完整交锋数据",
-        "form": " 待更新 ·  待更新",
-        "ranking": " 待更新 ·  待更新"
+        "form": "西班牙 待更新 ·  待更新",
+        "ranking": "西班牙 待更新 ·  待更新"
       }
     },
     {
@@ -2471,8 +2474,11 @@
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月15日 03:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "IN_PLAY",
+      "score": {
+        "home": 0,
+        "away": 2
+      }
     },
     {
       "matchNo": 102,
@@ -2492,9 +2498,9 @@
       "matchNo": 104,
       "stage": "FINAL",
       "date": "2026-07-19",
-      "home": "",
+      "home": "spain",
       "away": "",
-      "homeName": "",
+      "homeName": "西班牙",
       "awayName": "",
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月20日 03:00",
