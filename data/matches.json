@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-15T16:53:12.276Z",
+  "updatedAt": "2026-07-15T20:38:30.012Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1557,8 +1557,11 @@
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月16日 03:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "IN_PLAY",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "英格兰 待更新 · 阿根廷 待更新",
@@ -1625,7 +1628,7 @@
     {
       "date": "2026-07-19",
       "home": "spain",
-      "away": "",
+      "away": "england",
       "groupName": "决赛",
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月20日 03:00",
@@ -1634,8 +1637,8 @@
       "score": null,
       "data": {
         "h2h": "暂无完整交锋数据",
-        "form": "西班牙 待更新 ·  待更新",
-        "ranking": "西班牙 待更新 ·  待更新"
+        "form": "西班牙 待更新 · 英格兰 待更新",
+        "ranking": "西班牙 待更新 · 英格兰 待更新"
       }
     },
     {
@@ -2491,17 +2494,20 @@
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月16日 03:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "IN_PLAY",
+      "score": {
+        "home": 1,
+        "away": 0
+      }
     },
     {
       "matchNo": 104,
       "stage": "FINAL",
       "date": "2026-07-19",
       "home": "spain",
-      "away": "",
+      "away": "england",
       "homeName": "西班牙",
-      "awayName": "",
+      "awayName": "英格兰",
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月20日 03:00",
       "venue": "World",
