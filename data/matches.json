@@ -1,6 +1,6 @@
 {
   "source": "football-data.org",
-  "updatedAt": "2026-07-19T18:06:04.756Z",
+  "updatedAt": "2026-07-19T20:34:06.239Z",
   "matches": [
     {
       "date": "2026-06-11",
@@ -1652,8 +1652,11 @@
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月20日 03:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null,
+      "status": "IN_PLAY",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
       "data": {
         "h2h": "暂无完整交锋数据",
         "form": "西班牙 待更新 · 阿根廷 待更新",
@@ -2530,8 +2533,11 @@
       "time": "19:00 UTC",
       "beijingTime": "北京时间 2026年7月20日 03:00",
       "venue": "World",
-      "status": "TIMED",
-      "score": null
+      "status": "IN_PLAY",
+      "score": {
+        "home": 0,
+        "away": 0
+      }
     }
   ]
 }
